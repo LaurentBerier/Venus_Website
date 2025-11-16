@@ -1,0 +1,127 @@
+Create a responsive AAA-style website in HTML, CSS and vanilla JS for my video game:
+
+Osman Ghazi: Ottoman Rising
+
+Visual reference: https://www.ubisoft.com/en-ca/game/assassins-creed
+
+Color palette: purple, blue, black, gold
+Assets: integrate my visuals (hero rider, Osman portrait, game logo, edition key art). Use placeholder filenames so I can replace them.
+
+Requirements
+
+Overall style
+
+Dark night-mode look, gold accents, smooth gradients.
+
+Cinematic layout inspired by Assassin’s Creed sites.
+
+Crisp serif headings + clean sans serif body text.
+
+Micro animations: fade-ins, hover glows, parallax hero, subtle embers.
+
+Structure
+Include these sections:
+
+Header + Nav
+
+Sticky nav with logo, links, CTAs and language toggle (EN, FR, AR).
+
+Hero
+
+Full-width hero using the rider image, gradient overlay, parallax.
+
+Logo, title, tagline, Watch Trailer + Pre order buttons.
+
+Leaderboard ad placeholder under CTAs.
+
+Story
+
+Short description of the world and setting.
+
+Text + Osman portrait.
+
+Features
+
+Grid of feature cards with hover animations.
+
+World
+
+Location cards with image placeholders and short lore.
+
+Characters
+
+Osman focus + companion portraits.
+
+Editions
+
+Standard, Deluxe, Collector.
+
+Key art centerpiece, content lists, price placeholders.
+
+Medium ad placeholder.
+
+Media / Gallery
+
+Screenshots, trailer thumbnail, simple modal viewer.
+
+Roadmap
+
+Timeline of milestones (teaser, beta, releases, DLC).
+
+Community
+
+Social icons, newsletter form.
+
+Desktop-only skyscraper ad placeholder.
+
+FAQ
+
+Accordion JS.
+
+Contact / Press
+
+Contact form + press kit link.
+
+Footer
+
+Logo, legal links, social icons, duplicate language toggle.
+
+Multilingual system
+
+Buttons: EN, FR, AR.
+
+Store all text in a JS object with three translations.
+
+Switch text dynamically without reloading.
+
+When Arabic is selected, add dir="rtl" and adjust layout.
+
+Animations & Effects
+
+CSS/JS only: parallax, scroll reveal, hover glows, animated embers.
+
+Smooth scroll on nav links.
+
+Ads
+
+Create clear placeholder containers for Google Ads:
+
+Leaderboard (top)
+
+Medium rectangle (editions)
+
+Skyscraper (desktop side)
+Add commented out AdSense script blocks so I can replace them later.
+
+Technical
+
+Pure HTML/CSS/JS, no frameworks.
+
+SEO basics: title, meta description, social OG tags.
+
+Fully responsive with mobile, tablet, desktop breakpoints.
+
+Clean comments marking where to replace text, images, ads.
+
+Output:
+Provide the full HTML, CSS and JS files.
