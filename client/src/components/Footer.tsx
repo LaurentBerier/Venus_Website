@@ -1,0 +1,101 @@
+import { useLanguage } from '@/lib/LanguageContext';
+import { SiX, SiFacebook, SiYoutube, SiInstagram, SiDiscord } from 'react-icons/si';
+import logoUrl from '@assets/osman-logo_1763257661241.png';
+
+export default function Footer() {
+  const { language, setLanguage, t } = useLanguage();
+
+  const languages: { code: 'en' | 'fr' | 'ar'; label: string }[] = [
+    { code: 'en', label: 'EN' },
+    { code: 'fr', label: 'FR' },
+    { code: 'ar', label: 'AR' },
+  ];
+
+  const socialLinks = [
+    { icon: SiX, label: 'X', url: '#' },
+    { icon: SiFacebook, label: 'Facebook', url: '#' },
+    { icon: SiYoutube, label: 'YouTube', url: '#' },
+    { icon: SiInstagram, label: 'Instagram', url: '#' },
+    { icon: SiDiscord, label: 'Discord', url: '#' },
+  ];
+
+  return (
+    <footer className="bg-card border-t border-border" data-testid="footer">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
+          <div>
+            <img src={logoUrl} alt="Osman Ghazi Logo" className="h-12 w-auto mb-4" />
+            <p className="text-sm text-foreground/70">
+              Experience the legendary rise of Osman Ghazi and the Ottoman Empire.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-semibold text-foreground mb-4">{t.footer.legal}</h3>
+            <ul className="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  className="text-sm text-foreground/70 hover:text-foreground transition-colors"
+                  data-testid="link-privacy"
+                >
+                  {t.footer.privacy}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-sm text-foreground/70 hover:text-foreground transition-colors"
+                  data-testid="link-terms"
+                >
+                  {t.footer.terms}
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold text-foreground mb-4">Language</h3>
+            <div className="flex gap-2">
+              {languages.map((lang) => (
+                <button
+                  key={lang.code}
+                  onClick={() => setLanguage(lang.code)}
+                  className={`px-3 py-2 text-sm font-medium rounded transition-all ${
+                    language === lang.code
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-muted text-muted-foreground hover-elevate'
+                  }`}
+                  data-testid={`footer-lang-${lang.code}`}
+                >
+                  {lang.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-border">
+          <p className="text-sm text-foreground/60">{t.footer.copyright}</p>
+          <div className="flex gap-4">
+            {socialLinks.map((social, index) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={index}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground/60 hover:text-foreground transition-colors"
+                  data-testid={`footer-social-${social.label.toLowerCase()}`}
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
