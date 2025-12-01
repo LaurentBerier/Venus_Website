@@ -4,6 +4,8 @@ import { useLanguage } from '@/lib/LanguageContext';
 import { Menu, X } from 'lucide-react';
 import logoUrl from '@assets/osman-logo_1763257661241.png';
 
+import Os_LogoStyle_trans from "@assets/Os_LogoStyle_trans.png";
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -56,7 +58,7 @@ export default function Header() {
             className="flex items-center gap-3 hover-elevate active-elevate-2 p-2 rounded-md"
             data-testid="button-logo"
           >
-            <img src={logoUrl} alt="Osman Ghazi Logo" className="h-8 sm:h-10 w-auto" />
+            <img src={Os_LogoStyle_trans} alt="Osman Ghazi Logo" className="h-8 sm:h-10 w-auto" />
           </button>
 
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
@@ -112,7 +114,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-card border-t border-card-border">
           <div className="px-4 py-4 space-y-2">
