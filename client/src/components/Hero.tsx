@@ -5,6 +5,8 @@ import { Play } from 'lucide-react';
 import heroImage from '@assets/hero-rider_1763257661241.jpg';
 import logoUrl from '@assets/osman-logo_1763257661241.png';
 
+import Os_ProfilePicture_trans from "@assets/Os_ProfilePicture_trans.png";
+
 export default function Hero() {
   const { t } = useLanguage();
   const [scrollY, setScrollY] = useState(0);
@@ -28,13 +30,11 @@ export default function Hero() {
           transform: `translateY(${parallaxOffset}px)`,
         }}
       />
-      
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
-
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-8">
           <img
-            src={logoUrl}
+            src={Os_ProfilePicture_trans}
             alt="Osman Ghazi Logo"
             className="mx-auto h-32 sm:h-40 md:h-48 w-auto animate-fade-in"
             data-testid="img-hero-logo"
@@ -79,7 +79,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
         <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
           <div className="w-1.5 h-1.5 bg-white/50 rounded-full" />
