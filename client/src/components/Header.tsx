@@ -2,9 +2,6 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/lib/LanguageContext';
 import { Menu, X } from 'lucide-react';
-import logoUrl from '@assets/osman-logo_1763257661241.png';
-
-import Os_LogoStyle_trans from "@assets/Os_LogoStyle_trans.png";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,7 +44,7 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background/95 backdrop-blur-md border-b border-border' : 'bg-transparent'
+        isScrolled ? 'bg-background/95 backdrop-blur-md border-b border-[hsl(190,85%,50%,0.15)]' : 'bg-transparent'
       }`}
       data-testid="header"
     >
@@ -58,7 +55,7 @@ export default function Header() {
             className="flex items-center gap-3 hover-elevate active-elevate-2 p-2 rounded-md"
             data-testid="button-logo"
           >
-            <img src={Os_LogoStyle_trans} alt="Osman Ghazi Logo" className="h-8 sm:h-10 w-auto" />
+            <span className="font-serif text-lg sm:text-xl font-bold tracking-wider text-glow-cyan text-primary uppercase">Venus</span>
           </button>
 
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
@@ -66,7 +63,7 @@ export default function Header() {
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="text-sm text-foreground/80 hover:text-foreground px-3 py-2 rounded-md hover-elevate active-elevate-2 transition-colors"
+                className="text-xs uppercase tracking-wider text-foreground/70 hover:text-primary px-3 py-2 rounded-md hover-elevate active-elevate-2 transition-colors"
                 data-testid={`link-${link.id}`}
               >
                 {link.label}
@@ -121,7 +118,7 @@ export default function Header() {
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="block w-full text-left px-3 py-2 rounded-md text-foreground/80 hover:text-foreground hover-elevate active-elevate-2"
+                className="block w-full text-left px-3 py-2 rounded-md text-foreground/80 hover:text-foreground hover-elevate active-elevate-2 text-sm uppercase tracking-wider"
                 data-testid={`mobile-link-${link.id}`}
               >
                 {link.label}

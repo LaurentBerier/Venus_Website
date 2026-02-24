@@ -24,29 +24,32 @@ export default function Community() {
     e.preventDefault();
     console.log('Newsletter subscription:', email);
     toast({
-      title: 'Subscribed!',
-      description: 'Thank you for joining our community.',
+      title: 'Enlisted!',
+      description: 'Welcome to the colony, survivor.',
     });
     setEmail('');
   };
 
   return (
-    <section id="community" className="py-16 sm:py-24 bg-card" data-testid="section-community">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="community" className="py-16 sm:py-24 bg-card relative" data-testid="section-community">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(190,85%,50%,0.2)] to-transparent" />
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid lg:grid-cols-[1fr,auto] gap-12">
           <div>
             <div className="text-center lg:text-left mb-12 space-y-2">
-              <p className="text-sm font-semibold text-accent uppercase tracking-wider">
+              <p className="text-sm font-semibold text-primary uppercase tracking-widest">
                 {t.community.subtitle}
               </p>
-              <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground">
+              <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-wide uppercase">
                 {t.community.title}
               </h2>
             </div>
 
-            <Card className="mb-8">
+            <Card className="mb-8 border-glow-cyan">
               <CardContent className="p-8 space-y-6">
-                <h3 className="font-serif text-2xl font-bold text-foreground">
+                <h3 className="font-serif text-xl font-bold text-foreground tracking-wider uppercase">
                   {t.community.newsletter}
                 </h3>
                 <form onSubmit={handleSubscribe} className="flex gap-2">

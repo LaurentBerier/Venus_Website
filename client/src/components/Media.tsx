@@ -3,31 +3,37 @@ import { useLanguage } from '@/lib/LanguageContext';
 import { Card } from '@/components/ui/card';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { X } from 'lucide-react';
-import heroImage from '@assets/hero-rider_1763257661241.jpg';
-import keyArtImage from '@assets/keyart-deluxe_1763257661241.jpg';
-import osmanPortrait from '@assets/osman-portrait_1763257661242.jpg';
+import img1 from '@assets/Venus_SurvivalA_TrailerA_04.00_00_18_23.Still002_1771944920653.jpg';
+import img2 from '@assets/Venus_SurvivalA_TrailerA_04.00_00_28_05.Still004_1771944920654.jpg';
+import img3 from '@assets/Venus_SurvivalA_TrailerA_04.00_00_32_21.Still005_1771944920654.jpg';
+import img4 from '@assets/Venus_SurvivalA_TrailerA_04.00_00_45_24.Still007_1771944920654.jpg';
+import img5 from '@assets/Venus_SurvivalA_TrailerA_04.00_01_02_02.Still010_1771944920655.jpg';
+import img6 from '@assets/Venus_SurvivalA_TrailerA_04.00_01_15_13.Still011_1771944920655.jpg';
 
 export default function Media() {
   const { t } = useLanguage();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const screenshots = [
-    { src: heroImage, alt: 'Epic horseback riding across Anatolian landscapes' },
-    { src: keyArtImage, alt: 'Osman Ghazi character showcase' },
-    { src: osmanPortrait, alt: 'Close-up of the legendary founder' },
-    { src: heroImage, alt: 'Cinematic gameplay screenshot' },
-    { src: keyArtImage, alt: 'Battle scene preview' },
-    { src: osmanPortrait, alt: 'Character detail' },
+    { src: img1, alt: 'Crash site on Venus surface with burning wreckage' },
+    { src: img2, alt: 'Energy weapon in action against alien crystals' },
+    { src: img3, alt: 'Holographic vehicle construction blueprint' },
+    { src: img4, alt: 'Massive mobile base with lava flows in background' },
+    { src: img5, alt: 'Co-op construction of a large mobile fortress' },
+    { src: img6, alt: 'Venus sunset with base silhouette and energy beam' },
   ];
 
   return (
-    <section id="media" className="py-16 sm:py-24 bg-card" data-testid="section-media">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="media" className="py-16 sm:py-24 bg-card relative" data-testid="section-media">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(190,85%,50%,0.2)] to-transparent" />
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-12 space-y-2">
-          <p className="text-sm font-semibold text-accent uppercase tracking-wider">
+          <p className="text-sm font-semibold text-primary uppercase tracking-widest">
             {t.media.subtitle}
           </p>
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground">
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-wide uppercase">
             {t.media.title}
           </h2>
         </div>
@@ -36,7 +42,7 @@ export default function Media() {
           {screenshots.map((screenshot, index) => (
             <Card
               key={index}
-              className="overflow-hidden cursor-pointer hover-elevate active-elevate-2 transition-all"
+              className="overflow-hidden cursor-pointer hover-elevate active-elevate-2 transition-all border-glow-cyan"
               onClick={() => setSelectedImage(screenshot.src)}
               data-testid={`card-screenshot-${index}`}
             >

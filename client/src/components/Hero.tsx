@@ -2,14 +2,12 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/lib/LanguageContext';
 import { Play } from 'lucide-react';
-import heroImage from '@assets/hero-rider_1763257661241.jpg';
-import logoUrl from '@assets/osman-logo_1763257661241.png';
-
-import Os_ProfilePicture_trans from "@assets/Os_ProfilePicture_trans.png";
+import heroImage from '@assets/Venus_Hero_1771945354304.jpg';
 
 export default function Hero() {
   const { t } = useLanguage();
   const [scrollY, setScrollY] = useState(0);
+  const [showTrailer, setShowTrailer] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,21 +28,20 @@ export default function Hero() {
           transform: `translateY(${parallaxOffset}px)`,
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/90" />
+
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(190,85%,50%,0.4)] to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(25,90%,55%,0.4)] to-transparent" />
+      </div>
+
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-8">
-          <img
-            src={Os_ProfilePicture_trans}
-            alt="Osman Ghazi Logo"
-            className="mx-auto h-32 sm:h-40 md:h-48 w-auto animate-fade-in"
-            data-testid="img-hero-logo"
-          />
-          
-          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight animate-fade-in">
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-wider animate-fade-in text-glow-cyan uppercase" data-testid="text-hero-title">
             {t.hero.title}
           </h1>
           
-          <p className="text-lg sm:text-xl md:text-2xl text-white/90 font-light max-w-2xl mx-auto animate-fade-in">
+          <p className="text-lg sm:text-xl md:text-2xl text-white/90 font-light max-w-2xl mx-auto animate-fade-in tracking-wide">
             {t.hero.tagline}
           </p>
 
@@ -52,8 +49,8 @@ export default function Hero() {
             <Button
               size="lg"
               variant="outline"
-              className="bg-background/20 backdrop-blur-md border-white/30 text-white hover:bg-white/30 min-w-[200px]"
-              onClick={() => console.log('Watch Trailer clicked')}
+              className="bg-background/20 backdrop-blur-md border-[hsl(190,85%,50%,0.4)] text-white min-w-[200px] border-glow-cyan"
+              onClick={() => setShowTrailer(true)}
               data-testid="button-watch-trailer"
             >
               <Play className="mr-2 h-5 w-5" />
@@ -61,7 +58,7 @@ export default function Hero() {
             </Button>
             <Button
               size="lg"
-              className="bg-accent text-accent-foreground hover:bg-accent/90 border border-accent-border min-w-[200px]"
+              className="bg-accent text-accent-foreground border border-accent-border min-w-[200px] border-glow-orange"
               onClick={() => document.getElementById('editions')?.scrollIntoView({ behavior: 'smooth' })}
               data-testid="button-preorder-hero"
             >
@@ -79,11 +76,37 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
-          <div className="w-1.5 h-1.5 bg-white/50 rounded-full" />
+        <div className="w-6 h-10 border-2 border-[hsl(190,85%,50%,0.5)] rounded-full flex items-start justify-center p-2">
+          <div className="w-1.5 h-1.5 bg-[hsl(190,85%,50%,0.5)] rounded-full" />
         </div>
       </div>
+
+      {showTrailer && (
+        <div
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          onClick={() => setShowTrailer(false)}
+          data-testid="modal-trailer"
+        >
+          <div className="relative w-full max-w-5xl aspect-video" onClick={(e) => e.stopPropagation()}>
+            <iframe
+              src="https://www.youtube.com/embed/_Pu2hAu-vy8?autoplay=1&rel=0"
+              title="Venus: Build Your Destiny - Trailer"
+              className="w-full h-full rounded-md border border-[hsl(190,85%,50%,0.3)]"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+            <button
+              onClick={() => setShowTrailer(false)}
+              className="absolute -top-10 right-0 text-white/70 hover:text-white text-sm tracking-wider uppercase"
+              data-testid="button-close-trailer"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

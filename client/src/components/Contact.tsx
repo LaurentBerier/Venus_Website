@@ -20,8 +20,8 @@ export default function Contact() {
     e.preventDefault();
     console.log('Contact form submitted:', formData);
     toast({
-      title: 'Message Sent!',
-      description: "We'll get back to you soon.",
+      title: 'Transmission Sent!',
+      description: 'We\'ll respond to your frequency soon.',
     });
     setFormData({ name: '', email: '', message: '' });
   };
@@ -31,23 +31,26 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-24 bg-card" data-testid="section-contact">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-16 sm:py-24 bg-card relative" data-testid="section-contact">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(190,85%,50%,0.2)] to-transparent" />
+      </div>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-12 space-y-2">
-          <p className="text-sm font-semibold text-accent uppercase tracking-wider">
+          <p className="text-sm font-semibold text-primary uppercase tracking-widest">
             {t.contact.subtitle}
           </p>
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground">
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-wide uppercase">
             {t.contact.title}
           </h2>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          <Card>
+          <Card className="border-glow-cyan">
             <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium mb-2 uppercase tracking-wider">
                     {t.contact.name}
                   </label>
                   <Input
@@ -60,7 +63,7 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium mb-2 uppercase tracking-wider">
                     {t.contact.email}
                   </label>
                   <Input
@@ -74,7 +77,7 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium mb-2 uppercase tracking-wider">
                     {t.contact.message}
                   </label>
                   <Textarea
@@ -94,13 +97,13 @@ export default function Contact() {
             </CardContent>
           </Card>
 
-          <Card className="hover-elevate active-elevate-2 transition-all">
+          <Card className="hover-elevate active-elevate-2 transition-all border-glow-orange">
             <CardContent className="p-8 flex flex-col items-center justify-center text-center h-full space-y-6">
-              <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center">
+              <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
                 <Download className="h-12 w-12 text-primary" />
               </div>
               <div>
-                <h3 className="font-serif text-2xl font-bold text-foreground mb-2">
+                <h3 className="font-serif text-2xl font-bold text-foreground mb-2 tracking-wider uppercase">
                   {t.contact.press}
                 </h3>
                 <p className="text-foreground/70 text-sm mb-6">
