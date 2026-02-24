@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/lib/LanguageContext';
 import { Menu, X } from 'lucide-react';
+import logoImage from '@assets/Enhanced_Venus_LogoWhiteBold_01_1771949339391.png';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,10 +36,9 @@ export default function Header() {
     { label: t.nav.community, id: 'community' },
   ];
 
-  const languages: { code: 'en' | 'fr' | 'ar'; label: string }[] = [
+  const languages: { code: 'en' | 'fr'; label: string }[] = [
     { code: 'en', label: 'EN' },
     { code: 'fr', label: 'FR' },
-    { code: 'ar', label: 'AR' },
   ];
 
   return (
@@ -55,7 +55,7 @@ export default function Header() {
             className="flex items-center gap-3 hover-elevate active-elevate-2 p-2 rounded-md"
             data-testid="button-logo"
           >
-            <span className="font-serif text-lg sm:text-xl font-bold tracking-wider text-glow-cyan text-primary uppercase">Venus</span>
+            <img src={logoImage} alt="Venus: Build Your Destiny" className="h-8 sm:h-10 w-auto" />
           </button>
 
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2">

@@ -1,13 +1,13 @@
 import { useLanguage } from '@/lib/LanguageContext';
 import { SiX, SiFacebook, SiYoutube, SiInstagram, SiDiscord } from 'react-icons/si';
+import logoImage from '@assets/Enhanced_Venus_LogoWhiteBold_01_1771949339391.png';
 
 export default function Footer() {
   const { language, setLanguage, t } = useLanguage();
 
-  const languages: { code: 'en' | 'fr' | 'ar'; label: string }[] = [
+  const languages: { code: 'en' | 'fr'; label: string }[] = [
     { code: 'en', label: 'EN' },
     { code: 'fr', label: 'FR' },
-    { code: 'ar', label: 'AR' },
   ];
 
   const socialLinks = [
@@ -23,7 +23,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <span className="font-serif text-xl font-bold tracking-wider text-glow-cyan text-primary uppercase block mb-4">Venus</span>
+            <img src={logoImage} alt="Venus: Build Your Destiny" className="h-10 w-auto mb-4" />
             <p className="text-sm text-foreground/70">
               Survive the hostile surface of Venus. Build, explore, and forge your destiny.
             </p>

@@ -44,7 +44,7 @@
   --chart-4: 280 60% 55%;
   --chart-5: 340 75% 50%;
   --font-sans: 'Inter', sans-serif;
-  --font-serif: 'Orbitron', sans-serif;
+  --font-serif: 'Michroma', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
   --radius: 0.875rem;
   --shadow-2xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00);
@@ -167,7 +167,7 @@
   --spacing: 0.25rem;
   --font-mono: 'IBM Plex Mono', monospace;
   --font-sans: 'Inter', sans-serif;
-  --font-serif: 'Orbitron', sans-serif;
+  --font-serif: 'Michroma', sans-serif;
   --tracking-normal: 0em;
 }
 

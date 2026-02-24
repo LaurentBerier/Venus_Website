@@ -55,7 +55,7 @@ export default function Editions() {
           </Card>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-3 gap-6">
           {editions.map((edition, index) => (
             <Card
               key={index}
@@ -93,13 +93,6 @@ export default function Editions() {
               </CardFooter>
             </Card>
           ))}
-        </div>
-
-        <div className="bg-card/50 backdrop-blur-sm border border-card-border rounded-md p-4 max-w-md mx-auto">
-          <p className="text-xs text-muted-foreground mb-2 text-center">Advertisement</p>
-          <div className="h-64 bg-muted/20 rounded flex items-center justify-center">
-            <span className="text-sm text-muted-foreground">Medium Rectangle Ad (300x250)</span>
-          </div>
         </div>
       </div>
     </section>

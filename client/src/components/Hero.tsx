@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/lib/LanguageContext';
 import { Play } from 'lucide-react';
 import heroImage from '@assets/Venus_Hero_1771945354304.jpg';
+import logoImage from '@assets/Enhanced_Venus_LogoWhiteBold_01_1771949339391.png';
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -20,7 +21,7 @@ export default function Hero() {
   const parallaxOffset = scrollY * 0.5;
 
   return (
-    <section id="hero" className="relative h-screen min-h-[600px] overflow-hidden" data-testid="section-hero">
+    <section id="hero" className="relative min-h-screen overflow-hidden" data-testid="section-hero">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -35,12 +36,15 @@ export default function Hero() {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(25,90%,55%,0.4)] to-transparent" />
       </div>
 
-      <div className="absolute inset-0 flex items-center justify-center">
+      <div className="absolute inset-0 flex flex-col items-center justify-center">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-8">
-          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-wider animate-fade-in text-glow-cyan uppercase" data-testid="text-hero-title">
-            {t.hero.title}
-          </h1>
-          
+          <img
+            src={logoImage}
+            alt="Venus: Build Your Destiny"
+            className="h-16 sm:h-24 md:h-32 lg:h-40 w-auto mx-auto animate-fade-in"
+            data-testid="img-hero-logo"
+          />
+
           <p className="text-lg sm:text-xl md:text-2xl text-white/90 font-light max-w-2xl mx-auto animate-fade-in tracking-wide">
             {t.hero.tagline}
           </p>
@@ -65,13 +69,26 @@ export default function Hero() {
               {t.nav.preOrder}
             </Button>
           </div>
+        </div>
 
-          <div className="pt-8">
-            <div className="bg-card/10 backdrop-blur-sm border border-card-border rounded-md p-4 max-w-3xl mx-auto">
-              <p className="text-xs text-muted-foreground mb-2">Advertisement</p>
-              <div className="h-20 sm:h-24 bg-muted/20 rounded flex items-center justify-center">
-                <span className="text-sm text-muted-foreground">Leaderboard Ad Placeholder (728x90)</span>
+        <div className="w-full max-w-5xl mx-auto px-4 mt-12">
+          <div
+            className="relative aspect-video rounded-md overflow-hidden border border-[hsl(190,85%,50%,0.3)] border-glow-cyan cursor-pointer group"
+            onClick={() => setShowTrailer(true)}
+            data-testid="banner-trailer"
+          >
+            <img
+              src={`https://img.youtube.com/vi/_Pu2hAu-vy8/maxresdefault.jpg`}
+              alt="Watch Trailer"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors flex items-center justify-center">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-primary/80 flex items-center justify-center border-glow-cyan">
+                <Play className="h-8 w-8 sm:h-10 sm:w-10 text-white ml-1" />
               </div>
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+              <p className="font-serif text-sm sm:text-base text-white tracking-wider uppercase">Official Reveal Trailer</p>
             </div>
           </div>
         </div>
