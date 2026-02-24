@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/lib/LanguageContext';
 import { Play } from 'lucide-react';
@@ -7,36 +7,33 @@ import logoImage from '@assets/Enhanced_Venus_LogoWhiteBold_01_1771949339391.png
 
 export default function Hero() {
   const { t } = useLanguage();
-  const [scrollY, setScrollY] = useState(0);
   const [showTrailer, setShowTrailer] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const parallaxOffset = scrollY * 0.5;
-
   return (
-    <section id="hero" className="relative overflow-hidden" data-testid="section-hero">
+    <section id="hero" className="relative h-screen min-h-[600px] overflow-hidden" data-testid="section-hero">
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${heroImage})`,
-          transform: `translateY(${parallaxOffset}px)`,
-        }}
+        style={{ backgroundImage: `url(${heroImage})` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/90" />
+
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <iframe
+          src="https://www.youtube.com/embed/_Pu2hAu-vy8?autoplay=1&mute=1&loop=1&playlist=_Pu2hAu-vy8&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&iv_load_policy=3&disablekb=1"
+          title="Venus: Build Your Destiny - Background Video"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full border-0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          style={{ border: 'none' }}
+        />
+      </div>
+
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/80" />
 
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(190,85%,50%,0.4)] to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(25,90%,55%,0.4)] to-transparent" />
       </div>
 
-      <div className="relative flex flex-col items-center pt-28 sm:pt-36 pb-16">
+      <div className="absolute inset-0 flex items-center justify-center">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-8">
           <img
             src={logoImage}
@@ -70,20 +67,11 @@ export default function Hero() {
             </Button>
           </div>
         </div>
+      </div>
 
-        <div className="w-full max-w-5xl mx-auto px-4 mt-12">
-          <div
-            className="relative aspect-video rounded-md overflow-hidden border border-[hsl(190,85%,50%,0.3)] border-glow-cyan"
-            data-testid="banner-trailer"
-          >
-            <iframe
-              src="https://www.youtube.com/embed/_Pu2hAu-vy8?autoplay=1&mute=1&loop=1&playlist=_Pu2hAu-vy8&rel=0&controls=1&modestbranding=1"
-              title="Venus: Build Your Destiny - Trailer"
-              className="w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-[hsl(190,85%,50%,0.5)] rounded-full flex items-start justify-center p-2">
+          <div className="w-1.5 h-1.5 bg-[hsl(190,85%,50%,0.5)] rounded-full" />
         </div>
       </div>
 
