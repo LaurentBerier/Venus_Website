@@ -21,7 +21,7 @@ export default function Hero() {
   const parallaxOffset = scrollY * 0.5;
 
   return (
-    <section id="hero" className="relative min-h-screen overflow-hidden" data-testid="section-hero">
+    <section id="hero" className="relative overflow-hidden" data-testid="section-hero">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -36,7 +36,7 @@ export default function Hero() {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(25,90%,55%,0.4)] to-transparent" />
       </div>
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center">
+      <div className="relative flex flex-col items-center pt-28 sm:pt-36 pb-16">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-8">
           <img
             src={logoImage}
@@ -73,30 +73,17 @@ export default function Hero() {
 
         <div className="w-full max-w-5xl mx-auto px-4 mt-12">
           <div
-            className="relative aspect-video rounded-md overflow-hidden border border-[hsl(190,85%,50%,0.3)] border-glow-cyan cursor-pointer group"
-            onClick={() => setShowTrailer(true)}
+            className="relative aspect-video rounded-md overflow-hidden border border-[hsl(190,85%,50%,0.3)] border-glow-cyan"
             data-testid="banner-trailer"
           >
-            <img
-              src={`https://img.youtube.com/vi/_Pu2hAu-vy8/maxresdefault.jpg`}
-              alt="Watch Trailer"
-              className="w-full h-full object-cover"
+            <iframe
+              src="https://www.youtube.com/embed/_Pu2hAu-vy8?autoplay=1&mute=1&loop=1&playlist=_Pu2hAu-vy8&rel=0&controls=1&modestbranding=1"
+              title="Venus: Build Your Destiny - Trailer"
+              className="w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
             />
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors flex items-center justify-center">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-primary/80 flex items-center justify-center border-glow-cyan">
-                <Play className="h-8 w-8 sm:h-10 sm:w-10 text-white ml-1" />
-              </div>
-            </div>
-            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-              <p className="font-serif text-sm sm:text-base text-white tracking-wider uppercase">Official Reveal Trailer</p>
-            </div>
           </div>
-        </div>
-      </div>
-
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-[hsl(190,85%,50%,0.5)] rounded-full flex items-start justify-center p-2">
-          <div className="w-1.5 h-1.5 bg-[hsl(190,85%,50%,0.5)] rounded-full" />
         </div>
       </div>
 
