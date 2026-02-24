@@ -38,7 +38,7 @@ export default function Hero() {
           <img
             src={logoImage}
             alt="Venus: Build Your Destiny"
-            className="h-16 sm:h-24 md:h-32 lg:h-40 w-auto mx-auto animate-fade-in"
+            className="h-32 sm:h-48 md:h-64 lg:h-80 w-auto mx-auto animate-fade-in"
             data-testid="img-hero-logo"
           />
 
