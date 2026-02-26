@@ -4,14 +4,13 @@ interface Star {
   x: number;
   y: number;
   z: number;
-  prevX: number;
-  prevY: number;
 }
 
 export default function StarField() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const starsRef = useRef<Star[]>([]);
   const animFrameRef = useRef<number>(0);
+  const visibleRef = useRef(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -19,7 +18,7 @@ export default function StarField() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const STAR_COUNT = 500;
+    const STAR_COUNT = 400;
     const MAX_DEPTH = 1500;
     const SPEED = 2.5;
 
@@ -30,26 +29,29 @@ export default function StarField() {
       star.x = (Math.random() - 0.5) * canvas.width * 2;
       star.y = (Math.random() - 0.5) * canvas.height * 2;
       star.z = randomZ ? Math.random() * MAX_DEPTH : MAX_DEPTH;
-      star.prevX = 0;
-      star.prevY = 0;
     };
 
     const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
       centerX = canvas.width / 2;
       centerY = canvas.height / 2;
     };
 
     const initStars = () => {
       starsRef.current = Array.from({ length: STAR_COUNT }, () => {
-        const star: Star = { x: 0, y: 0, z: 0, prevX: 0, prevY: 0 };
+        const star: Star = { x: 0, y: 0, z: 0 };
         resetStar(star, true);
         return star;
       });
     };
 
     const draw = () => {
+      if (!visibleRef.current) {
+        animFrameRef.current = requestAnimationFrame(draw);
+        return;
+      }
+
       ctx.fillStyle = 'rgba(0, 0, 0, 0.15)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -64,7 +66,6 @@ export default function StarField() {
 
         const sx = (star.x / star.z) * 300 + centerX;
         const sy = (star.y / star.z) * 300 + centerY;
-
         const prevSx = (star.x / prevZ) * 300 + centerX;
         const prevSy = (star.y / prevZ) * 300 + centerY;
 
@@ -78,7 +79,6 @@ export default function StarField() {
         const alpha = depthRatio * 0.9 + 0.1;
 
         const trailLength = Math.sqrt((sx - prevSx) ** 2 + (sy - prevSy) ** 2);
-
         if (trailLength > 0.5 && depthRatio > 0.3) {
           ctx.beginPath();
           ctx.moveTo(prevSx, prevSy);
@@ -111,11 +111,19 @@ export default function StarField() {
 
     resize();
     initStars();
+
+    const io = new IntersectionObserver(([entry]) => {
+      visibleRef.current = entry.isIntersecting;
+    }, { threshold: 0 });
+    io.observe(canvas);
+
     animFrameRef.current = requestAnimationFrame(draw);
 
-    window.addEventListener('resize', resize);
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas);
     return () => {
-      window.removeEventListener('resize', resize);
+      ro.disconnect();
+      io.disconnect();
       cancelAnimationFrame(animFrameRef.current);
     };
   }, []);
@@ -123,8 +131,7 @@ export default function StarField() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none"
-      style={{ zIndex: 0 }}
+      className="absolute inset-0 w-full h-full pointer-events-none"
       data-testid="canvas-starfield"
     />
   );

@@ -12,27 +12,54 @@ import FAQ from '@/components/FAQ';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import StarField from '@/components/StarField';
+import NebulaField from '@/components/NebulaField';
+import BlackHoleField from '@/components/BlackHoleField';
 import AmbientEffects from '@/components/AmbientEffects';
+
+function SectionGroup({ bg, children }: { bg: 'stars' | 'nebula' | 'blackhole'; children: React.ReactNode }) {
+  return (
+    <div className="relative isolate">
+      <div className="absolute inset-0 overflow-hidden -z-10">
+        {bg === 'stars' && <StarField />}
+        {bg === 'nebula' && <NebulaField />}
+        {bg === 'blackhole' && <BlackHoleField />}
+      </div>
+      {children}
+    </div>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="min-h-screen relative">
-      <StarField />
+    <div className="min-h-screen">
       <AmbientEffects />
+
       <div className="relative" style={{ zIndex: 2 }}>
         <Header />
-        <Hero />
-        <Story />
-        <Features />
-        <World />
-        <Characters />
-        <Editions />
-        <Media />
-        <Roadmap />
-        <Community />
-        <FAQ />
-        <Contact />
-        <Footer />
+
+        <SectionGroup bg="stars">
+          <Hero />
+          <Story />
+          <Features />
+        </SectionGroup>
+
+        <SectionGroup bg="nebula">
+          <World />
+          <Characters />
+        </SectionGroup>
+
+        <SectionGroup bg="blackhole">
+          <Editions />
+          <Media />
+        </SectionGroup>
+
+        <SectionGroup bg="stars">
+          <Roadmap />
+          <Community />
+          <FAQ />
+          <Contact />
+          <Footer />
+        </SectionGroup>
       </div>
     </div>
   );
