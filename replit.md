@@ -4,6 +4,14 @@
 A sci-fi survival game promotional website for "Venus: Build Your Destiny". Features a dark theme with cyan (primary) and orange (accent) color scheme, Michroma font for headings, and multi-language support (EN/FR).
 
 ## Recent Changes
+- **2026-02-26**: Dynamic light effects and star particles
+  - Added canvas-based StarField component with twinkling animated stars
+  - Added AmbientEffects component with drifting cyan/orange light orbs and scan line
+  - Section backgrounds made semi-transparent (bg-background/90, bg-card/90) so stars peek through
+  - Added section-divider-glow class with glowing cyan dividers between sections
+  - Added heading-glow class with subtle text shadow on all section headings
+  - New CSS keyframes: drift-1/2/3, scan-sweep, section-glow-pulse
+  - New CSS classes: ambient-orb variants, scan-line, section-divider-glow, heading-glow
 - **2026-02-24**: Logo, font, language, and ad updates
   - Replaced text logo with Venus logo image (Enhanced_Venus_LogoWhiteBold_01) in Header, Footer, and Hero
   - Switched heading font from Orbitron to Michroma to match logo style

@@ -8,7 +8,7 @@ export default function Features() {
   const { t } = useLanguage();
 
   return (
-    <section id="features" className="py-16 sm:py-24 bg-card relative" data-testid="section-features">
+    <section id="features" className="py-16 sm:py-24 bg-card/90 relative section-divider-glow" data-testid="section-features">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(190,85%,50%,0.2)] to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(190,85%,50%,0.2)] to-transparent" />
@@ -18,7 +18,7 @@ export default function Features() {
           <p className="text-sm font-semibold text-primary uppercase tracking-widest">
             {t.features.subtitle}
           </p>
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-wide uppercase">
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-wide uppercase heading-glow">
             {t.features.title}
           </h2>
         </div>

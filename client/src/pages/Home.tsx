@@ -11,23 +11,29 @@ import Community from '@/components/Community';
 import FAQ from '@/components/FAQ';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import StarField from '@/components/StarField';
+import AmbientEffects from '@/components/AmbientEffects';
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <Hero />
-      <Story />
-      <Features />
-      <World />
-      <Characters />
-      <Editions />
-      <Media />
-      <Roadmap />
-      <Community />
-      <FAQ />
-      <Contact />
-      <Footer />
+    <div className="min-h-screen relative">
+      <StarField />
+      <AmbientEffects />
+      <div className="relative" style={{ zIndex: 2 }}>
+        <Header />
+        <Hero />
+        <Story />
+        <Features />
+        <World />
+        <Characters />
+        <Editions />
+        <Media />
+        <Roadmap />
+        <Community />
+        <FAQ />
+        <Contact />
+        <Footer />
+      </div>
     </div>
   );
 }

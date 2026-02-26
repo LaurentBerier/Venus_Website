@@ -19,7 +19,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-card border-t border-[hsl(190,85%,50%,0.1)]" data-testid="footer">
+    <footer className="bg-card/90 border-t border-[hsl(190,85%,50%,0.1)]" data-testid="footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
