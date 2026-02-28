@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-interface NebulaParticle {
+interface Cloud {
   x: number;
   y: number;
   vx: number;
@@ -12,19 +12,19 @@ interface NebulaParticle {
   pulseSpeed: number;
 }
 
-interface BackgroundStar {
+interface BgStar {
   x: number;
   y: number;
   size: number;
   alpha: number;
-  twinkle: number;
-  twinkleSpeed: number;
+  phase: number;
+  speed: number;
 }
 
 export default function NebulaField() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const particlesRef = useRef<NebulaParticle[]>([]);
-  const starsRef = useRef<BackgroundStar[]>([]);
+  const cloudsRef = useRef<Cloud[]>([]);
+  const starsRef = useRef<BgStar[]>([]);
   const animFrameRef = useRef<number>(0);
   const visibleRef = useRef(false);
 
@@ -35,35 +35,36 @@ export default function NebulaField() {
     if (!ctx) return;
 
     const resize = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-      initParticles();
-      initStars();
-    };
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      const w = canvas.offsetWidth;
+      const h = canvas.offsetHeight;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      ctx.scale(dpr, dpr);
 
-    const initStars = () => {
-      const count = Math.floor((canvas.width * canvas.height) / 4000);
-      starsRef.current = Array.from({ length: Math.min(count, 200) }, () => ({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 1.5 + 0.3,
-        alpha: Math.random() * 0.7 + 0.3,
-        twinkle: Math.random() * Math.PI * 2,
-        twinkleSpeed: Math.random() * 0.004 + 0.001,
+      const small = w < 768;
+      const cloudCount = small ? 15 : 30;
+      const starCount = small ? 60 : 120;
+
+      starsRef.current = Array.from({ length: starCount }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        size: Math.random() * 1.3 + 0.2,
+        alpha: Math.random() * 0.6 + 0.2,
+        phase: Math.random() * Math.PI * 2,
+        speed: Math.random() * 0.003 + 0.001,
       }));
-    };
 
-    const initParticles = () => {
-      particlesRef.current = Array.from({ length: 60 }, () => ({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.2,
-        size: Math.random() * 120 + 40,
-        hue: Math.random() > 0.5 ? 190 + Math.random() * 30 : 270 + Math.random() * 40,
-        alpha: Math.random() * 0.06 + 0.02,
+      cloudsRef.current = Array.from({ length: cloudCount }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.2,
+        vy: (Math.random() - 0.5) * 0.15,
+        size: Math.random() * 100 + 30,
+        hue: Math.random() > 0.5 ? 190 + Math.random() * 25 : 270 + Math.random() * 30,
+        alpha: Math.random() * 0.05 + 0.015,
         pulse: Math.random() * Math.PI * 2,
-        pulseSpeed: Math.random() * 0.005 + 0.002,
+        pulseSpeed: Math.random() * 0.004 + 0.001,
       }));
     };
 
@@ -73,74 +74,65 @@ export default function NebulaField() {
         return;
       }
 
-      ctx.fillStyle = 'rgba(8, 10, 18, 0.92)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      const w = canvas.offsetWidth;
+      const h = canvas.offsetHeight;
 
-      for (const star of starsRef.current) {
-        const t = Math.sin(time * star.twinkleSpeed + star.twinkle);
-        const a = star.alpha * (0.4 + t * 0.6);
+      ctx.fillStyle = 'rgba(8, 10, 18, 0.93)';
+      ctx.fillRect(0, 0, w, h);
+
+      for (const s of starsRef.current) {
+        const t = Math.sin(time * s.speed + s.phase);
         ctx.beginPath();
-        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(200, 210, 255, ${a})`;
+        ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(200,210,255,${s.alpha * (0.4 + t * 0.6)})`;
         ctx.fill();
       }
 
-      for (const p of particlesRef.current) {
-        p.x += p.vx;
-        p.y += p.vy;
-        p.pulse += p.pulseSpeed;
+      for (const c of cloudsRef.current) {
+        c.x += c.vx;
+        c.y += c.vy;
+        c.pulse += c.pulseSpeed;
+        if (c.x < -c.size) c.x = w + c.size;
+        if (c.x > w + c.size) c.x = -c.size;
+        if (c.y < -c.size) c.y = h + c.size;
+        if (c.y > h + c.size) c.y = -c.size;
 
-        if (p.x < -p.size) p.x = canvas.width + p.size;
-        if (p.x > canvas.width + p.size) p.x = -p.size;
-        if (p.y < -p.size) p.y = canvas.height + p.size;
-        if (p.y > canvas.height + p.size) p.y = -p.size;
-
-        const pulseAlpha = p.alpha * (0.6 + Math.sin(p.pulse) * 0.4);
-        const sat = p.hue > 250 ? '60%' : '80%';
-        const light = p.hue > 250 ? '50%' : '55%';
-
-        const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);
-        gradient.addColorStop(0, `hsla(${p.hue}, ${sat}, ${light}, ${pulseAlpha * 1.5})`);
-        gradient.addColorStop(0.3, `hsla(${p.hue}, ${sat}, ${light}, ${pulseAlpha * 0.6})`);
-        gradient.addColorStop(0.7, `hsla(${p.hue + 20}, ${sat}, ${light}, ${pulseAlpha * 0.2})`);
-        gradient.addColorStop(1, `hsla(${p.hue}, ${sat}, ${light}, 0)`);
-
+        const a = c.alpha * (0.6 + Math.sin(c.pulse) * 0.4);
+        const g = ctx.createRadialGradient(c.x, c.y, 0, c.x, c.y, c.size);
+        g.addColorStop(0, `hsla(${c.hue},70%,55%,${a * 1.3})`);
+        g.addColorStop(0.5, `hsla(${c.hue},60%,50%,${a * 0.4})`);
+        g.addColorStop(1, `hsla(${c.hue},60%,50%,0)`);
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = gradient;
+        ctx.arc(c.x, c.y, c.size, 0, Math.PI * 2);
+        ctx.fillStyle = g;
         ctx.fill();
       }
 
-      const coreX = canvas.width * 0.6;
-      const coreY = canvas.height * 0.4;
-      const coreSize = Math.min(canvas.width, canvas.height) * 0.35;
-      const coreGrad = ctx.createRadialGradient(coreX, coreY, 0, coreX, coreY, coreSize);
-      const corePulse = 0.03 + Math.sin(time * 0.001) * 0.015;
-      coreGrad.addColorStop(0, `hsla(200, 80%, 60%, ${corePulse * 1.5})`);
-      coreGrad.addColorStop(0.3, `hsla(260, 60%, 50%, ${corePulse})`);
-      coreGrad.addColorStop(0.6, `hsla(290, 50%, 40%, ${corePulse * 0.5})`);
-      coreGrad.addColorStop(1, 'hsla(290, 50%, 40%, 0)');
+      const cx = w * 0.6;
+      const cy = h * 0.4;
+      const cs = Math.min(w, h) * 0.3;
+      const cp = 0.025 + Math.sin(time * 0.001) * 0.012;
+      const cg = ctx.createRadialGradient(cx, cy, 0, cx, cy, cs);
+      cg.addColorStop(0, `hsla(200,80%,60%,${cp * 1.3})`);
+      cg.addColorStop(0.4, `hsla(260,60%,50%,${cp * 0.6})`);
+      cg.addColorStop(1, 'hsla(260,60%,50%,0)');
       ctx.beginPath();
-      ctx.arc(coreX, coreY, coreSize, 0, Math.PI * 2);
-      ctx.fillStyle = coreGrad;
+      ctx.arc(cx, cy, cs, 0, Math.PI * 2);
+      ctx.fillStyle = cg;
       ctx.fill();
 
       animFrameRef.current = requestAnimationFrame(draw);
     };
 
     resize();
-
-    const io = new IntersectionObserver(([entry]) => {
-      visibleRef.current = entry.isIntersecting;
-    }, { threshold: 0 });
-    io.observe(canvas);
-
     animFrameRef.current = requestAnimationFrame(draw);
 
-    const ro = new ResizeObserver(resize);
-    ro.observe(canvas);
+    const io = new IntersectionObserver(([e]) => { visibleRef.current = e.isIntersecting; }, { threshold: 0 });
+    io.observe(canvas);
+
+    window.addEventListener('resize', resize);
     return () => {
-      ro.disconnect();
+      window.removeEventListener('resize', resize);
       io.disconnect();
       cancelAnimationFrame(animFrameRef.current);
     };
@@ -150,6 +142,7 @@ export default function NebulaField() {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full pointer-events-none"
+      style={{ width: '100%', height: '100%' }}
       data-testid="canvas-nebula"
     />
   );
