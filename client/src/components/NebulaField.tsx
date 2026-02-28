@@ -34,35 +34,36 @@ export default function NebulaField() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    let w = 0;
+    let h = 0;
+
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-      const w = canvas.offsetWidth;
-      const h = canvas.offsetHeight;
+      w = canvas.offsetWidth;
+      h = canvas.offsetHeight;
       canvas.width = w * dpr;
       canvas.height = h * dpr;
-      ctx.scale(dpr, dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
       const small = w < 768;
-      const cloudCount = small ? 15 : 30;
-      const starCount = small ? 60 : 120;
 
-      starsRef.current = Array.from({ length: starCount }, () => ({
+      starsRef.current = Array.from({ length: small ? 80 : 160 }, () => ({
         x: Math.random() * w,
         y: Math.random() * h,
-        size: Math.random() * 1.3 + 0.2,
-        alpha: Math.random() * 0.6 + 0.2,
+        size: Math.random() * 1.8 + 0.3,
+        alpha: Math.random() * 0.7 + 0.3,
         phase: Math.random() * Math.PI * 2,
         speed: Math.random() * 0.003 + 0.001,
       }));
 
-      cloudsRef.current = Array.from({ length: cloudCount }, () => ({
+      cloudsRef.current = Array.from({ length: small ? 20 : 40 }, () => ({
         x: Math.random() * w,
         y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.2,
-        vy: (Math.random() - 0.5) * 0.15,
-        size: Math.random() * 100 + 30,
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: (Math.random() - 0.5) * 0.18,
+        size: Math.random() * 120 + 40,
         hue: Math.random() > 0.5 ? 190 + Math.random() * 25 : 270 + Math.random() * 30,
-        alpha: Math.random() * 0.05 + 0.015,
+        alpha: Math.random() * 0.07 + 0.025,
         pulse: Math.random() * Math.PI * 2,
         pulseSpeed: Math.random() * 0.004 + 0.001,
       }));
@@ -74,17 +75,14 @@ export default function NebulaField() {
         return;
       }
 
-      const w = canvas.offsetWidth;
-      const h = canvas.offsetHeight;
-
-      ctx.fillStyle = 'rgba(8, 10, 18, 0.93)';
+      ctx.fillStyle = 'rgba(8, 10, 18, 0.92)';
       ctx.fillRect(0, 0, w, h);
 
       for (const s of starsRef.current) {
         const t = Math.sin(time * s.speed + s.phase);
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(200,210,255,${s.alpha * (0.4 + t * 0.6)})`;
+        ctx.fillStyle = `rgba(210,220,255,${s.alpha * (0.4 + t * 0.6)})`;
         ctx.fill();
       }
 
@@ -99,8 +97,8 @@ export default function NebulaField() {
 
         const a = c.alpha * (0.6 + Math.sin(c.pulse) * 0.4);
         const g = ctx.createRadialGradient(c.x, c.y, 0, c.x, c.y, c.size);
-        g.addColorStop(0, `hsla(${c.hue},70%,55%,${a * 1.3})`);
-        g.addColorStop(0.5, `hsla(${c.hue},60%,50%,${a * 0.4})`);
+        g.addColorStop(0, `hsla(${c.hue},75%,55%,${a * 1.5})`);
+        g.addColorStop(0.4, `hsla(${c.hue},65%,50%,${a * 0.5})`);
         g.addColorStop(1, `hsla(${c.hue},60%,50%,0)`);
         ctx.beginPath();
         ctx.arc(c.x, c.y, c.size, 0, Math.PI * 2);
@@ -110,11 +108,11 @@ export default function NebulaField() {
 
       const cx = w * 0.6;
       const cy = h * 0.4;
-      const cs = Math.min(w, h) * 0.3;
-      const cp = 0.025 + Math.sin(time * 0.001) * 0.012;
+      const cs = Math.min(w, h) * 0.35;
+      const cp = 0.04 + Math.sin(time * 0.001) * 0.02;
       const cg = ctx.createRadialGradient(cx, cy, 0, cx, cy, cs);
-      cg.addColorStop(0, `hsla(200,80%,60%,${cp * 1.3})`);
-      cg.addColorStop(0.4, `hsla(260,60%,50%,${cp * 0.6})`);
+      cg.addColorStop(0, `hsla(200,80%,60%,${cp * 1.5})`);
+      cg.addColorStop(0.35, `hsla(260,65%,50%,${cp * 0.8})`);
       cg.addColorStop(1, 'hsla(260,60%,50%,0)');
       ctx.beginPath();
       ctx.arc(cx, cy, cs, 0, Math.PI * 2);
