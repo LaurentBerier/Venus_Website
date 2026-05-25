@@ -3,24 +3,36 @@ import { useLanguage } from '@/lib/LanguageContext';
 import { Card } from '@/components/ui/card';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { X } from 'lucide-react';
-import img1 from '@assets/Venus_SurvivalA_TrailerA_04.00_00_18_23.Still002_1771944920653.jpg';
-import img2 from '@assets/Venus_SurvivalA_TrailerA_04.00_00_28_05.Still004_1771944920654.jpg';
-import img3 from '@assets/Venus_SurvivalA_TrailerA_04.00_00_32_21.Still005_1771944920654.jpg';
-import img4 from '@assets/Venus_SurvivalA_TrailerA_04.00_00_45_24.Still007_1771944920654.jpg';
-import img5 from '@assets/Venus_SurvivalA_TrailerA_04.00_01_02_02.Still010_1771944920655.jpg';
-import img6 from '@assets/Venus_SurvivalA_TrailerA_04.00_01_15_13.Still011_1771944920655.jpg';
+import img1 from '@assets/VenusTheLastAscent_Screenshot001A_1779741685978.png';
+import img2 from '@assets/VenusTheLastAscent_Screenshot002A_1779741685978.png';
+import img3 from '@assets/VenusTheLastAscent_Screenshot003A_1779741685978.png';
+import img4 from '@assets/VenusTheLastAscent_Screenshot004A_1779741685978.png';
+import img5 from '@assets/VenusTheLastAscent_Screenshot005A_1779741685979.png';
+import img6 from '@assets/VenusTheLastAscent_Screenshot006A_1779741685979.png';
+import img7 from '@assets/VenusTheLastAscent_Screenshot007A_1779741685979.png';
+import img8 from '@assets/VenusTheLastAscent_Screenshot008A_1779741685979.png';
+import img9 from '@assets/VenusTheLastAscent_Screenshot009A_1779741685980.png';
+import img10 from '@assets/VenusTheLastAscent_Screenshot010A_1779741685980.png';
+import img11 from '@assets/VenusTheLastAscent_Screenshot011A_1779741685980.png';
+import img12 from '@assets/VenusTheLastAscent_Screenshot012A_1779741685980.png';
 
 export default function Media() {
   const { t } = useLanguage();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const screenshots = [
-    { src: img1, alt: 'Crash site on Venus surface with burning wreckage' },
-    { src: img2, alt: 'Energy weapon in action against alien crystals' },
-    { src: img3, alt: 'Holographic vehicle construction blueprint' },
-    { src: img4, alt: 'Massive mobile base with lava flows in background' },
-    { src: img5, alt: 'Co-op construction of a large mobile fortress' },
-    { src: img6, alt: 'Venus sunset with base silhouette and energy beam' },
+    { src: img1, alt: 'Venus: The Last Ascent - Screenshot 1' },
+    { src: img2, alt: 'Venus: The Last Ascent - Screenshot 2' },
+    { src: img3, alt: 'Venus: The Last Ascent - Screenshot 3' },
+    { src: img4, alt: 'Venus: The Last Ascent - Screenshot 4' },
+    { src: img5, alt: 'Venus: The Last Ascent - Screenshot 5' },
+    { src: img6, alt: 'Venus: The Last Ascent - Screenshot 6' },
+    { src: img7, alt: 'Venus: The Last Ascent - Screenshot 7' },
+    { src: img8, alt: 'Venus: The Last Ascent - Screenshot 8' },
+    { src: img9, alt: 'Venus: The Last Ascent - Screenshot 9' },
+    { src: img10, alt: 'Venus: The Last Ascent - Screenshot 10' },
+    { src: img11, alt: 'Venus: The Last Ascent - Screenshot 11' },
+    { src: img12, alt: 'Venus: The Last Ascent - Screenshot 12' },
   ];
 
   return (

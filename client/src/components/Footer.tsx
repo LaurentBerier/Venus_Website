@@ -1,6 +1,6 @@
 import { useLanguage } from '@/lib/LanguageContext';
-import { SiX, SiFacebook, SiYoutube, SiInstagram, SiDiscord } from 'react-icons/si';
-import logoImage from '@assets/Enhanced_Venus_LogoWhiteBold_01_1771949339391.png';
+import { SiX, SiYoutube, SiInstagram, SiDiscord } from 'react-icons/si';
+import logoImage from '@assets/VenusTheLastAscent_LogoWhite_Bold_Alpha_4096x1024_1779740028478.png';
 
 export default function Footer() {
   const { language, setLanguage, t } = useLanguage();
@@ -12,8 +12,7 @@ export default function Footer() {
 
   const socialLinks = [
     { icon: SiX, label: 'X', url: '#' },
-    { icon: SiFacebook, label: 'Facebook', url: '#' },
-    { icon: SiYoutube, label: 'YouTube', url: '#' },
+    { icon: SiYoutube, label: 'YouTube', url: 'https://youtu.be/pBjmzr_CL8s' },
     { icon: SiInstagram, label: 'Instagram', url: '#' },
     { icon: SiDiscord, label: 'Discord', url: '#' },
   ];
@@ -23,9 +22,12 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <img src={logoImage} alt="Venus: Build Your Destiny" className="h-10 w-auto mb-4" />
+            <img src={logoImage} alt="Venus: The Last Ascent" className="h-10 w-auto mb-4" />
             <p className="text-sm text-foreground/70">
-              Survive the hostile surface of Venus. Build, explore, and forge your destiny.
+              Build a rolling fortress, survive Venus, and fight your way to the last city above the clouds.
+            </p>
+            <p className="text-xs text-foreground/50 mt-2">
+              Breaking Walls &mdash; Montreal, Canada
             </p>
           </div>
 
@@ -48,6 +50,17 @@ export default function Footer() {
                   data-testid="link-terms"
                 >
                   {t.footer.terms}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://store.steampowered.com/app/2640150/Venus_The_Last_Ascent/?beta=0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-foreground/70 hover:text-primary transition-colors"
+                  data-testid="link-steam-footer"
+                >
+                  Steam Page
                 </a>
               </li>
             </ul>

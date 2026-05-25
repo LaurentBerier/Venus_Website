@@ -2,7 +2,9 @@ import { useLanguage } from '@/lib/LanguageContext';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Check } from 'lucide-react';
-import keyArtImage from '@assets/Venus_SurvivalA_TrailerA_04.00_01_02_02.Still010_1771944920655.jpg';
+import keyArtImage from '@assets/VenusTheLastAscent_KeyArtHorizontal_01_1779741673571.jpg';
+
+const STEAM_URL = 'https://store.steampowered.com/app/2640150/Venus_The_Last_Ascent/?beta=0';
 
 export default function Editions() {
   const { t } = useLanguage();
@@ -46,7 +48,7 @@ export default function Editions() {
             <div className="aspect-video relative">
               <img
                 src={keyArtImage}
-                alt="Game Key Art"
+                alt="Venus: The Last Ascent - Key Art"
                 className="w-full h-full object-cover"
                 data-testid="img-keyart"
               />
@@ -66,7 +68,7 @@ export default function Editions() {
             >
               {edition.featured && (
                 <div className="bg-primary text-primary-foreground text-center py-2 text-sm font-semibold uppercase tracking-wider">
-                  Most Popular
+                  Full Game
                 </div>
               )}
               <CardHeader>
@@ -85,7 +87,7 @@ export default function Editions() {
                 <Button
                   className="w-full"
                   variant={edition.featured ? 'default' : 'outline'}
-                  onClick={() => console.log(`Wishlist ${edition.name} clicked`)}
+                  onClick={() => window.open(STEAM_URL, '_blank')}
                   data-testid={`button-preorder-${index}`}
                 >
                   {t.nav.preOrder}

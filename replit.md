@@ -1,7 +1,7 @@
-# Venus: Build Your Destiny - Game Website
+# Venus: The Last Ascent - Game Website
 
 ## Overview
-A sci-fi survival game promotional website for "Venus: Build Your Destiny". Features a dark theme with cyan (primary) and orange (accent) color scheme, Michroma font for headings, and multi-language support (EN/FR).
+A physics-based sci-fi survival game promotional website for "Venus: The Last Ascent" by Breaking Walls studio. Features a dark theme with cyan (primary) and orange (accent) color scheme, Michroma font for headings, and multi-language support (EN/FR).
 
 ## Recent Changes
 - **2026-02-26**: Three alternating animated backgrounds per section group

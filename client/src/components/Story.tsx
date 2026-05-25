@@ -1,6 +1,6 @@
 import { useLanguage } from '@/lib/LanguageContext';
 import { Card } from '@/components/ui/card';
-import storyImage from '@assets/Venus_SurvivalA_TrailerA_04.00_00_26_14.Still001_1771944920654.jpg';
+import storyImage from '@assets/VenusTheLastAscent_KeyArtHorizontal_01_1779741673571.jpg';
 
 export default function Story() {
   const { t } = useLanguage();
@@ -28,7 +28,7 @@ export default function Story() {
             <div className="aspect-[16/9] relative">
               <img
                 src={storyImage}
-                alt="The Pioneer"
+                alt="Venus: The Last Ascent"
                 className="w-full h-full object-cover"
                 data-testid="img-story-portrait"
               />

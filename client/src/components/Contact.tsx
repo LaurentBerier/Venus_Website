@@ -7,6 +7,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Download } from 'lucide-react';
 
+const PRESS_KIT_URL = 'https://breakingwalls.notion.site/Press-Kit-36b4306583c6809aa562ccea0bfad029';
+
 export default function Contact() {
   const { t } = useLanguage();
   const { toast } = useToast();
@@ -20,8 +22,8 @@ export default function Contact() {
     e.preventDefault();
     console.log('Contact form submitted:', formData);
     toast({
-      title: 'Transmission Sent!',
-      description: 'We\'ll respond to your frequency soon.',
+      title: 'Message Sent!',
+      description: "We'll get back to you soon.",
     });
     setFormData({ name: '', email: '', message: '' });
   };
@@ -94,6 +96,9 @@ export default function Contact() {
                   {t.contact.send}
                 </Button>
               </form>
+              <p className="text-xs text-foreground/50 mt-4 text-center">
+                Press contact: Nathanael Dufour &mdash; venus@breakingwalls.co
+              </p>
             </CardContent>
           </Card>
 
@@ -107,12 +112,12 @@ export default function Contact() {
                   {t.contact.press}
                 </h3>
                 <p className="text-foreground/70 text-sm mb-6">
-                  High-resolution assets, logos, and media kit for press and content creators
+                  High-resolution assets, logos, screenshots, and media kit for press and content creators
                 </p>
               </div>
               <Button
                 variant="outline"
-                onClick={() => console.log('Download press kit')}
+                onClick={() => window.open(PRESS_KIT_URL, '_blank')}
                 data-testid="button-download-presskit"
               >
                 <Download className="mr-2 h-4 w-4" />

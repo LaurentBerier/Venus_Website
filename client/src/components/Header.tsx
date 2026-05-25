@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/lib/LanguageContext';
 import { Menu, X } from 'lucide-react';
-import logoImage from '@assets/Enhanced_Venus_LogoWhiteBold_01_1771949339391.png';
+import logoImage from '@assets/VenusTheLastAscent_LogoWhite_Bold_Alpha_4096x1024_1779740028478.png';
+
+const STEAM_URL = 'https://store.steampowered.com/app/2640150/Venus_The_Last_Ascent/?beta=0';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -55,7 +57,7 @@ export default function Header() {
             className="flex items-center gap-3 hover-elevate active-elevate-2 p-2 rounded-md"
             data-testid="button-logo"
           >
-            <img src={logoImage} alt="Venus: Build Your Destiny" className="h-8 sm:h-10 w-auto" />
+            <img src={logoImage} alt="Venus: The Last Ascent" className="h-8 sm:h-10 w-auto" />
           </button>
 
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
@@ -92,7 +94,7 @@ export default function Header() {
             <Button
               variant="default"
               size="sm"
-              onClick={() => scrollToSection('editions')}
+              onClick={() => window.open(STEAM_URL, '_blank')}
               className="hidden sm:inline-flex"
               data-testid="button-preorder-header"
             >

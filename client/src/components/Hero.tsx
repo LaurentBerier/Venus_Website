@@ -2,8 +2,11 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/lib/LanguageContext';
 import { Play } from 'lucide-react';
-import heroImage from '@assets/Venus_Hero_1771945354304.jpg';
-import logoImage from '@assets/Enhanced_Venus_LogoWhiteBold_01_1771949339391.png';
+import heroImage from '@assets/VenusTheLastAscent_KeyArtHorizontal_01_1779741673571.jpg';
+import logoImage from '@assets/VenusTheLastAscent_LogoWhite_Bold_Alpha_4096x1024_1779740028478.png';
+
+const TRAILER_ID = 'pBjmzr_CL8s';
+const STEAM_URL = 'https://store.steampowered.com/app/2640150/Venus_The_Last_Ascent/?beta=0';
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -18,8 +21,8 @@ export default function Hero() {
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <iframe
-          src="https://www.youtube.com/embed/_Pu2hAu-vy8?autoplay=1&mute=1&loop=1&playlist=_Pu2hAu-vy8&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&iv_load_policy=3&disablekb=1"
-          title="Venus: Build Your Destiny - Background Video"
+          src={`https://www.youtube.com/embed/${TRAILER_ID}?autoplay=1&mute=1&loop=1&playlist=${TRAILER_ID}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&iv_load_policy=3&disablekb=1`}
+          title="Venus: The Last Ascent - Background Video"
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full border-0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           style={{ border: 'none' }}
@@ -37,7 +40,7 @@ export default function Hero() {
         <div className="max-w-4xl mx-auto px-4 text-center space-y-8">
           <img
             src={logoImage}
-            alt="Venus: Build Your Destiny"
+            alt="Venus: The Last Ascent"
             className="h-32 sm:h-48 md:h-64 lg:h-80 w-auto mx-auto animate-fade-in"
             data-testid="img-hero-logo"
           />
@@ -60,7 +63,7 @@ export default function Hero() {
             <Button
               size="lg"
               className="bg-accent text-accent-foreground border border-accent-border min-w-[200px] border-glow-orange"
-              onClick={() => document.getElementById('editions')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => window.open(STEAM_URL, '_blank')}
               data-testid="button-preorder-hero"
             >
               {t.nav.preOrder}
@@ -83,8 +86,8 @@ export default function Hero() {
         >
           <div className="relative w-full max-w-5xl aspect-video" onClick={(e) => e.stopPropagation()}>
             <iframe
-              src="https://www.youtube.com/embed/_Pu2hAu-vy8?autoplay=1&rel=0"
-              title="Venus: Build Your Destiny - Trailer"
+              src={`https://www.youtube.com/embed/${TRAILER_ID}?autoplay=1&rel=0`}
+              title="Venus: The Last Ascent - Trailer"
               className="w-full h-full rounded-md border border-[hsl(190,85%,50%,0.3)]"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
