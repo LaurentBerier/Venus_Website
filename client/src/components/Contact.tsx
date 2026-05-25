@@ -8,6 +8,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Download } from 'lucide-react';
 
 const PRESS_KIT_URL = 'https://breakingwalls.notion.site/Press-Kit-36b4306583c6809aa562ccea0bfad029';
+const CONTACT_EMAIL = 'info@breakingwalls.co';
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -20,10 +21,14 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Contact form submitted:', formData);
+    const subject = encodeURIComponent(`Message from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
+    );
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
     toast({
-      title: 'Message Sent!',
-      description: "We'll get back to you soon.",
+      title: 'Opening email client...',
+      description: `Your message will be sent to ${CONTACT_EMAIL}`,
     });
     setFormData({ name: '', email: '', message: '' });
   };
@@ -97,7 +102,7 @@ export default function Contact() {
                 </Button>
               </form>
               <p className="text-xs text-foreground/50 mt-4 text-center">
-                Press contact: Nathanael Dufour &mdash; venus@breakingwalls.co
+                {CONTACT_EMAIL}
               </p>
             </CardContent>
           </Card>
@@ -123,6 +128,9 @@ export default function Contact() {
                 <Download className="mr-2 h-4 w-4" />
                 {t.contact.downloadPress}
               </Button>
+              <p className="text-xs text-foreground/50">
+                Press contact: Nathanael Dufour
+              </p>
             </CardContent>
           </Card>
         </div>

@@ -4,7 +4,7 @@ export const translations = {
       story: 'Story',
       features: 'Features',
       world: 'World',
-      characters: 'Survivors',
+      characters: 'Fortress',
       editions: 'Editions',
       media: 'Media',
       roadmap: 'Roadmap',
@@ -21,15 +21,15 @@ export const translations = {
     story: {
       title: 'The Last Ascent',
       subtitle: 'The Story',
-      content: 'Venus: The Last Ascent is a physics-based survival game where your base is also your vehicle. Build a massive rolling fortress of drills, farms, weapons, shields, and reactors, survive the hostile surface of Venus, and fight your way toward the last city above the clouds. Every component you add affects weight, balance, movement, and stability. A badly designed fortress can get stuck, flip, or fail when the terrain turns against it. The goal is simple — keep moving.',
+      content: 'Venus: The Last Ascent is a physics-based survival game where your base is also your vehicle. You are not building a shelter and waiting for rescue. You are hauling your entire world across one of the most hostile planets in the solar system. Your rolling fortress is your home, workshop, power grid, oxygen supply, weapon platform, farm, mining rig, and only way forward. On the horizon, a beam of light points toward Cloud City, the last city above the clouds. Every upgrade, every repair, every fight, and every kilometer crossed brings you closer to escape.',
     },
     features: {
-      title: 'Core Systems',
+      title: 'Key Features',
       subtitle: 'How You Survive',
       items: [
         {
           title: 'Rolling Fortress',
-          description: 'Build and expand a massive mobile base with drills, farms, weapons, shields, reactors, oxygen systems, storage, and tools — all on a machine that moves.',
+          description: 'Build and expand a massive mobile base with drills, farms, weapons, shields, reactors, oxygen systems, storage, and tools, all on a machine that moves.',
         },
         {
           title: 'Real Physics Engineering',
@@ -59,7 +59,7 @@ export const translations = {
       locations: [
         {
           name: 'Acid Plains',
-          description: 'Vast scorching flats of corroded rock where the first survivors made landfall — and where abandoned machines still prowl at dawn.',
+          description: 'Vast scorching flats of corroded rock where the first survivors made landfall, and where abandoned machines still prowl at dawn.',
         },
         {
           name: 'Glass Deserts',
@@ -67,18 +67,36 @@ export const translations = {
         },
         {
           name: 'Cloud City',
-          description: 'The last city above the toxic atmosphere — a beacon of light on the horizon and the reason your fortress must keep rolling forward.',
+          description: 'The last city above the toxic atmosphere. A beacon of light on the horizon and the reason your fortress must keep rolling forward.',
         },
       ],
     },
     characters: {
-      title: 'Build Your Machine',
-      subtitle: 'Your Fortress, Your Survival',
+      title: 'Build Your Fortress',
+      subtitle: 'The Core Loop',
       pioneer: {
-        name: 'The Fortress',
-        title: 'Mobile Base & Only Way Forward',
-        description: 'Your rolling fortress is your home, workshop, power grid, oxygen supply, mining rig, weapon platform, and only means of survival. Build it well.',
+        name: 'Your Rolling Base',
+        title: 'Build It. Drive It. Survive With It.',
+        description: 'Every component you add to the fortress matters. Tools, drills, reactors, storage, shields, farms, weapons, and oxygen systems all change what your machine can do, but they also change how it behaves. Build bigger and stronger, but engineer carefully. A badly balanced fortress can get stuck on rough terrain, collapse under its own weight, or flip in a storm.',
       },
+      loop: [
+        {
+          title: 'Build',
+          description: 'Snap modules onto your fortress: drills for mining, farms for food, reactors for power, shields for protection, weapons for defense. Every part changes your machine.',
+        },
+        {
+          title: 'Mine and Upgrade',
+          description: 'Drill into Venusian rock, refine minerals, and unlock new blueprints. Stronger parts let you push further into more hostile territory.',
+        },
+        {
+          title: 'Defend',
+          description: 'At sunrise, solar-powered machines wake up and target your reactors. Mount turrets, reinforce your hull, scavenge wreckage, or drive faster than them.',
+        },
+        {
+          title: 'Advance',
+          description: 'Follow the beam of light on the horizon toward Cloud City, the last city above the clouds. Every kilometer crossed is survival earned.',
+        },
+      ],
     },
     editions: {
       title: 'Wishlist Now',
@@ -105,16 +123,16 @@ export const translations = {
           'Deep upgrade and blueprint trees',
           'Lost ruins and story logs',
           'Reach Cloud City above the clouds',
-          'Early Access — Fall 2027',
+          'Early Access, Fall 2027',
         ],
       },
       collectors: {
-        name: "Steam Next Fest",
+        name: 'Steam Next Fest',
         price: 'June 15, 2026',
         items: [
           'Featured in Steam Next Fest',
           'Extended demo access',
-          'Dev livestreams & Q&A',
+          'Dev livestreams and Q&A',
           'New trailer June 2, 2026',
           'Wishlist to be notified at launch',
           'Join the Breaking Walls community',
@@ -123,7 +141,7 @@ export const translations = {
     },
     media: {
       title: 'Media Gallery',
-      subtitle: 'Screenshots & Footage',
+      subtitle: 'Screenshots and Footage',
     },
     roadmap: {
       title: 'Development Roadmap',
@@ -153,8 +171,8 @@ export const translations = {
     },
     community: {
       title: 'Join the Community',
-      subtitle: 'Connect with Survivors',
-      newsletter: 'Subscribe for dev updates, demo announcements, and exclusive early access invitations from Breaking Walls.',
+      subtitle: 'Connect with Us',
+      newsletter: 'Subscribe for dev updates, demo announcements, and early access invitations from Breaking Walls.',
       emailPlaceholder: 'Enter your email',
       subscribe: 'Subscribe',
     },
@@ -172,7 +190,7 @@ export const translations = {
         },
         {
           question: 'What kind of game is this?',
-          answer: 'It\'s a physics-based survival game where your base is also your vehicle. Build a massive rolling fortress, survive the hostile surface of Venus, and fight your way toward Cloud City — the last city above the clouds.',
+          answer: 'A physics-based survival game where your base is also your vehicle. Build a massive rolling fortress, survive the hostile surface of Venus, and fight your way toward Cloud City, the last city above the clouds.',
         },
         {
           question: 'Who is making the game?',
@@ -200,9 +218,9 @@ export const translations = {
   fr: {
     nav: {
       story: 'Histoire',
-      features: 'Syst\u00E8mes',
+      features: 'Fonctionnalit\u00E9s',
       world: 'Monde',
-      characters: 'Survivants',
+      characters: 'Forteresse',
       editions: '\u00C9ditions',
       media: 'M\u00E9dias',
       roadmap: 'Feuille de Route',
@@ -214,15 +232,15 @@ export const translations = {
     },
     hero: {
       title: 'Venus: The Last Ascent',
-      tagline: 'Construisez une forteresse roulante, survivez sur V\u00E9nus, et frayez-vous un chemin vers la derni\u00E8re ville au-dessus des nuages.',
+      tagline: 'Construisez une forteresse roulante, survivez sur V\u00E9nus, et combattez vers la derni\u00E8re ville au-dessus des nuages.',
     },
     story: {
       title: 'La Derni\u00E8re Ascension',
       subtitle: "L'Histoire",
-      content: "Venus: The Last Ascent est un jeu de survie bas\u00E9 sur la physique o\u00F9 votre base est aussi votre v\u00E9hicule. Construisez une immense forteresse roulante de foreuses, fermes, armes, boucliers et r\u00E9acteurs, survivez sur la surface hostile de V\u00E9nus, et combattez vers la derni\u00E8re ville au-dessus des nuages. Chaque composant affect le poids, l'\u00E9quilibre, le mouvement et la stabilit\u00E9. L'objectif est simple : continuer d'avancer.",
+      content: "Venus: The Last Ascent est un jeu de survie bas\u00E9 sur la physique o\u00F9 votre base est aussi votre v\u00E9hicule. Vous ne construisez pas un abri en attendant les secours. Vous transportez tout votre monde \u00E0 travers l'une des plan\u00E8tes les plus hostiles du syst\u00E8me solaire. Votre forteresse roulante est votre maison, atelier, centrale \u00E9lectrique, r\u00E9serve d'oxyg\u00E8ne, plateforme d'armes, ferme, foreuse et seul moyen d'avancer. \u00C0 l'horizon, un faisceau de lumi\u00E8re pointe vers la Cit\u00E9 des Nuages, la derni\u00E8re ville au-dessus des nuages.",
     },
     features: {
-      title: 'Syst\u00E8mes Principaux',
+      title: 'Fonctionnalit\u00E9s',
       subtitle: 'Comment Survivre',
       items: [
         {
@@ -230,7 +248,7 @@ export const translations = {
           description: 'Construisez et \u00E9tendez une immense base mobile avec foreuses, fermes, armes, boucliers, r\u00E9acteurs, syst\u00E8mes d\'oxyg\u00E8ne et outils.',
         },
         {
-          title: 'Ing\u00E9nierie Physique R\u00E9elle',
+          title: 'Physique R\u00E9elle',
           description: 'Chaque pi\u00E8ce affect le poids, l\'\u00E9quilibre, le mouvement et la stabilit\u00E9. Construisez plus grand, mais assurez-vous que votre forteresse peut survivre au terrain.',
         },
         {
@@ -243,7 +261,7 @@ export const translations = {
         },
         {
           title: 'D\u00E9fendre la Machine',
-          description: 'Au lever du soleil, des machines solaires abandonn\u00E9es se r\u00E9veillent et chassent votre \u00E9nergie. Combattez-les ou continuez d\'avancer.',
+          description: 'Au lever du soleil, des machines abandonn\u00E9es se r\u00E9veillent et chassent votre \u00E9nergie. Combattez-les, r\u00E9cup\u00E9rez leurs restes, ou continuez d\'avancer.',
         },
         {
           title: 'D\u00E9couvrir les Ruines',
@@ -257,26 +275,44 @@ export const translations = {
       locations: [
         {
           name: 'Plaines Acides',
-          description: 'Vastes \u00E9tendues de roche corrod\u00E9e o\u00F9 les premiers survivants ont atterri — et o\u00F9 des machines abandonn\u00E9es r\u00F4dent encore \u00E0 l\'aube.',
+          description: 'Vastes \u00E9tendues de roche corrod\u00E9e o\u00F9 les premiers survivants ont atterri, et o\u00F9 des machines abandonn\u00E9es r\u00F4dent encore \u00E0 l\'aube.',
         },
         {
           name: 'D\u00E9serts de Verre',
-          description: 'Terres de silice cristallis\u00E9e faonn\u00E9es par la chaleur volcanique, cachant des d\u00E9p\u00F4ts min\u00E9raux et des \u00E9paves d\'exp\u00E9ditions ant\u00E9rieures.',
+          description: 'Terres de silice cristallis\u00E9e fa\u00E7onn\u00E9es par la chaleur volcanique, cachant des d\u00E9p\u00F4ts min\u00E9raux et des \u00E9paves d\u00E9s exp\u00E9ditions ant\u00E9rieures.',
         },
         {
           name: 'La Cit\u00E9 des Nuages',
-          description: 'La derni\u00E8re ville au-dessus de l\'atmosph\u00E8re toxique — un faisceau de lumi\u00E8re \u00E0 l\'horizon et la raison pour laquelle votre forteresse doit continuer d\'avancer.',
+          description: 'La derni\u00E8re ville au-dessus de l\'atmosph\u00E8re toxique. Un faisceau de lumi\u00E8re \u00E0 l\'horizon et la raison pour laquelle votre forteresse doit continuer d\'avancer.',
         },
       ],
     },
     characters: {
-      title: 'Construisez Votre Machine',
-      subtitle: 'Votre Forteresse, Votre Survie',
+      title: 'Construisez Votre Forteresse',
+      subtitle: 'La Boucle Principale',
       pioneer: {
-        name: 'La Forteresse',
-        title: 'Base Mobile et Seul Moyen d\'Avancer',
-        description: 'Votre forteresse roulante est votre maison, atelier, centrale \u00E9lectrique, r\u00E9serve d\'oxyg\u00E8ne, foreuse, plateforme d\'armes et seul moyen de survie. Construisez-la bien.',
+        name: 'Votre Base Roulante',
+        title: 'Construisez. Conduisez. Survivez.',
+        description: 'Chaque composant que vous ajoutez \u00E0 la forteresse compte. Outils, foreuses, r\u00E9acteurs, stockage, boucliers, fermes, armes et syst\u00E8mes d\'oxyg\u00E8ne changent tous ce que votre machine peut faire, mais changent aussi son comportement. Construisez plus grand, mais ing\u00E9nirez avec soin.',
       },
+      loop: [
+        {
+          title: 'Construire',
+          description: 'Ajoutez des modules \u00E0 votre forteresse: foreuses, fermes, r\u00E9acteurs, boucliers, armes. Chaque pi\u00E8ce change votre machine.',
+        },
+        {
+          title: 'Miner et Am\u00E9liorer',
+          description: 'Forez dans la roche v\u00E9nusienne, raffinez les min\u00E9raux et d\u00E9bloquez de nouveaux plans. Des pi\u00E8ces plus puissantes vous permettent d\'aller plus loin.',
+        },
+        {
+          title: 'D\u00E9fendre',
+          description: 'Au lever du soleil, des machines solaires ciblent vos r\u00E9acteurs. Montez des tourelles, renforcez la coque, r\u00E9cup\u00E9rez des \u00E9paves ou conduisez plus vite.',
+        },
+        {
+          title: 'Avancer',
+          description: 'Suivez le faisceau de lumi\u00E8re \u00E0 l\'horizon vers la Cit\u00E9 des Nuages. Chaque kilom\u00E8tre parcouru est une survie m\u00E9rit\u00E9e.',
+        },
+      ],
     },
     editions: {
       title: 'Ajouter en Liste de Souhaits',
@@ -303,7 +339,7 @@ export const translations = {
           'Arbres d\'am\u00E9lioration approfondis',
           'Ruines perdues et journaux',
           'Atteignez la Cit\u00E9 des Nuages',
-          'Acc\u00E8s anticip\u00E9 — Automne 2027',
+          'Acc\u00E8s anticip\u00E9, Automne 2027',
         ],
       },
       collectors: {
@@ -321,7 +357,7 @@ export const translations = {
     },
     media: {
       title: 'Galerie M\u00E9dia',
-      subtitle: 'Captures & S\u00E9quences',
+      subtitle: 'Captures et S\u00E9quences',
     },
     roadmap: {
       title: 'Feuille de Route',
@@ -370,7 +406,7 @@ export const translations = {
         },
         {
           question: 'Quel type de jeu est-ce?',
-          answer: "C'est un jeu de survie bas\u00E9 sur la physique o\u00F9 votre base est aussi votre v\u00E9hicule. Construisez une immense forteresse roulante et combattez vers la Cit\u00E9 des Nuages.",
+          answer: "Un jeu de survie bas\u00E9 sur la physique o\u00F9 votre base est aussi votre v\u00E9hicule. Construisez une immense forteresse roulante et combattez vers la Cit\u00E9 des Nuages.",
         },
         {
           question: 'Qui d\u00E9veloppe le jeu?',

@@ -1,8 +1,8 @@
 import { useLanguage } from '@/lib/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
-import { Shield, Building2, Cpu, Car, CloudLightning, Users } from 'lucide-react';
+import { Truck, Cpu, Navigation, Wrench, Shield, Search } from 'lucide-react';
 
-const icons = [Shield, Building2, Cpu, Car, CloudLightning, Users];
+const icons = [Truck, Cpu, Navigation, Wrench, Shield, Search];
 
 export default function Features() {
   const { t } = useLanguage();

@@ -12,7 +12,7 @@ export default function Footer() {
 
   const socialLinks = [
     { icon: SiX, label: 'X', url: '#' },
-    { icon: SiYoutube, label: 'YouTube', url: 'https://youtu.be/pBjmzr_CL8s' },
+    { icon: SiYoutube, label: 'YouTube', url: 'https://youtu.be/56Pn344KUVE' },
     { icon: SiInstagram, label: 'Instagram', url: '#' },
     { icon: SiDiscord, label: 'Discord', url: '#' },
   ];
@@ -22,12 +22,12 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <img src={logoImage} alt="Venus: The Last Ascent" className="h-10 w-auto mb-4" />
+            <img src={logoImage} alt="Venus: The Last Ascent" className="h-auto w-40 mb-4" />
             <p className="text-sm text-foreground/70">
               Build a rolling fortress, survive Venus, and fight your way to the last city above the clouds.
             </p>
             <p className="text-xs text-foreground/50 mt-2">
-              Breaking Walls &mdash; Montreal, Canada
+              Breaking Walls, Montreal, Canada
             </p>
           </div>
 

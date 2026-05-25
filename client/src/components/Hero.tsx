@@ -5,7 +5,7 @@ import { Play } from 'lucide-react';
 import heroImage from '@assets/VenusTheLastAscent_KeyArtHorizontal_01_1779741673571.jpg';
 import logoImage from '@assets/VenusTheLastAscent_LogoWhite_Bold_Alpha_4096x1024_1779740028478.png';
 
-const TRAILER_ID = 'pBjmzr_CL8s';
+const TRAILER_ID = '56Pn344KUVE';
 const STEAM_URL = 'https://store.steampowered.com/app/2640150/Venus_The_Last_Ascent/?beta=0';
 
 export default function Hero() {
@@ -37,11 +37,11 @@ export default function Hero() {
       </div>
 
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="max-w-4xl mx-auto px-4 text-center space-y-8">
+        <div className="max-w-4xl mx-auto px-4 text-center space-y-8 w-full">
           <img
             src={logoImage}
             alt="Venus: The Last Ascent"
-            className="h-32 sm:h-48 md:h-64 lg:h-80 w-auto mx-auto animate-fade-in"
+            className="w-full max-w-2xl h-auto mx-auto animate-fade-in"
             data-testid="img-hero-logo"
           />
 

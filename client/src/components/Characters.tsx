@@ -1,17 +1,39 @@
 import { useLanguage } from '@/lib/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
-import pioneerImage from '@assets/Venus_SurvivalA_TrailerA_04.00_00_26_14.Still001_1771944920654.jpg';
-import engineerImage from '@assets/Venus_SurvivalA_TrailerA_04.00_00_56_10.Still008_1771944920655.jpg';
-import explorerImage from '@assets/Venus_SurvivalA_TrailerA_04.00_00_19_27.Still003_1771944920653.jpg';
-import pilotImage from '@assets/Venus_SurvivalA_TrailerA_04.00_00_58_26.Still009_1771944920655.jpg';
+import { Wrench, Navigation, Shield, Pickaxe } from 'lucide-react';
+import buildImg1 from '@assets/VenusTheLastAscent_Screenshot005A_1779744708156.png';
+import buildImg2 from '@assets/VenusTheLastAscent_Screenshot006A_1779744708156.png';
+import driveImg from '@assets/VenusTheLastAscent_Screenshot007A_1779744708157.png';
+import exploreImg from '@assets/VenusTheLastAscent_Screenshot009A_1779744708157.png';
 
 export default function Characters() {
   const { t } = useLanguage();
 
-  const companions = [
-    { name: 'Dr. Vasquez', role: 'Chief Engineer', image: engineerImage },
-    { name: 'Kira Nomura', role: 'Field Explorer', image: explorerImage },
-    { name: 'Marcus Cole', role: 'Rover Pilot', image: pilotImage },
+  const loopSteps = [
+    {
+      icon: Wrench,
+      image: buildImg1,
+      title: t.characters.loop[0].title,
+      description: t.characters.loop[0].description,
+    },
+    {
+      icon: Pickaxe,
+      image: buildImg2,
+      title: t.characters.loop[1].title,
+      description: t.characters.loop[1].description,
+    },
+    {
+      icon: Shield,
+      image: driveImg,
+      title: t.characters.loop[2].title,
+      description: t.characters.loop[2].description,
+    },
+    {
+      icon: Navigation,
+      image: exploreImg,
+      title: t.characters.loop[3].title,
+      description: t.characters.loop[3].description,
+    },
   ];
 
   return (
@@ -29,49 +51,64 @@ export default function Characters() {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-8">
-          <Card className="overflow-hidden hover-elevate border-glow-cyan">
-            <div className="aspect-[4/5] relative">
+        <div className="mb-10">
+          <Card className="overflow-hidden border-glow-cyan">
+            <div className="aspect-[16/9] relative">
               <img
-                src={pioneerImage}
-                alt={t.characters.pioneer.name}
+                src={exploreImg}
+                alt="Player approaching the rolling fortress on Venus"
                 className="w-full h-full object-cover"
-                data-testid="img-character-pioneer"
+                data-testid="img-fortress-hero"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-8 text-white space-y-2">
-                <h3 className="font-serif text-3xl font-bold tracking-wider uppercase">{t.characters.pioneer.name}</h3>
-                <p className="text-primary font-semibold uppercase tracking-wider text-sm">{t.characters.pioneer.title}</p>
-                <p className="text-sm text-white/90 leading-relaxed">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-8 space-y-3">
+                <h3 className="font-serif text-3xl sm:text-4xl font-bold text-white tracking-wider uppercase">
+                  {t.characters.pioneer.name}
+                </h3>
+                <p className="text-primary font-semibold uppercase tracking-wider text-sm">
+                  {t.characters.pioneer.title}
+                </p>
+                <p className="text-white/90 text-sm sm:text-base leading-relaxed max-w-2xl">
                   {t.characters.pioneer.description}
                 </p>
               </div>
             </div>
           </Card>
+        </div>
 
-          <div className="space-y-4">
-            {companions.map((companion, index) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {loopSteps.map((step, index) => {
+            const Icon = step.icon;
+            return (
               <Card
                 key={index}
-                className="hover-elevate active-elevate-2 transition-all cursor-pointer overflow-hidden border-glow-cyan"
-                data-testid={`card-companion-${index}`}
+                className="overflow-hidden hover-elevate active-elevate-2 transition-all border-glow-cyan"
+                data-testid={`card-loop-${index}`}
               >
-                <CardContent className="p-0 flex items-center gap-4">
-                  <div className="w-24 h-24 flex-shrink-0 overflow-hidden">
-                    <img
-                      src={companion.image}
-                      alt={companion.name}
-                      className="w-full h-full object-cover"
-                    />
+                <div className="aspect-video relative">
+                  <img
+                    src={step.image}
+                    alt={step.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/50" />
+                  <div className="absolute top-3 left-3">
+                    <div className="w-8 h-8 rounded-md bg-primary/20 backdrop-blur-sm flex items-center justify-center border border-primary/40">
+                      <Icon className="h-4 w-4 text-primary" />
+                    </div>
                   </div>
-                  <div className="py-4 pr-4">
-                    <h4 className="font-serif text-lg font-bold text-foreground tracking-wider uppercase">{companion.name}</h4>
-                    <p className="text-sm text-primary">{companion.role}</p>
-                  </div>
+                </div>
+                <CardContent className="p-4 space-y-2">
+                  <h4 className="font-serif text-base font-bold text-foreground tracking-wider uppercase">
+                    {step.title}
+                  </h4>
+                  <p className="text-foreground/70 text-xs leading-relaxed">
+                    {step.description}
+                  </p>
                 </CardContent>
               </Card>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>
