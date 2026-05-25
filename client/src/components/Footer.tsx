@@ -1,5 +1,5 @@
 import { useLanguage } from '@/lib/LanguageContext';
-import { SiX, SiYoutube, SiInstagram, SiDiscord } from 'react-icons/si';
+import { SiX, SiYoutube, SiInstagram, SiDiscord, SiFacebook, SiTiktok, SiBluesky } from 'react-icons/si';
 import logoImage from '@assets/VenusTheLastAscent_LogoWhite_Bold_Alpha_4096x1024_1779740028478.png';
 
 export default function Footer() {
@@ -11,10 +11,13 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { icon: SiX, label: 'X', url: '#' },
-    { icon: SiYoutube, label: 'YouTube', url: 'https://youtu.be/56Pn344KUVE' },
-    { icon: SiInstagram, label: 'Instagram', url: '#' },
-    { icon: SiDiscord, label: 'Discord', url: '#' },
+    { icon: SiX, label: 'X', url: 'https://twitter.com/BWallsStudio' },
+    { icon: SiFacebook, label: 'Facebook', url: 'https://www.facebook.com/BreakingWallsStudio' },
+    { icon: SiYoutube, label: 'YouTube', url: 'https://www.youtube.com/channel/BreakingWallsStudio' },
+    { icon: SiInstagram, label: 'Instagram', url: 'https://www.instagram.com/breakingwallsstudio' },
+    { icon: SiTiktok, label: 'TikTok', url: 'https://www.tiktok.com/@BreakingWallsStudio' },
+    { icon: SiDiscord, label: 'Discord', url: 'https://discord.com/channels/603754527753109516/603754528797622313' },
+    { icon: SiBluesky, label: 'Bluesky', url: 'https://bsky.app/profile/breakingwalls.bsky.social' },
   ];
 
   return (
@@ -23,12 +26,18 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
             <img src={logoImage} alt="Venus: The Last Ascent" className="h-auto w-40 mb-4" />
-            <p className="text-sm text-foreground/70">
+            <p className="text-sm text-foreground/70 mb-3">
               Build a rolling fortress, survive Venus, and fight your way to the last city above the clouds.
             </p>
-            <p className="text-xs text-foreground/50 mt-2">
-              Breaking Walls, Montreal, Canada
-            </p>
+            <a
+              href="https://www.breakingwalls.co/home"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-primary hover:text-primary/80 transition-colors"
+              data-testid="link-studio-website"
+            >
+              breakingwalls.co
+            </a>
           </div>
 
           <div>
@@ -100,6 +109,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-foreground/60 hover:text-primary transition-colors"
                   data-testid={`footer-social-${social.label.toLowerCase()}`}
+                  aria-label={social.label}
                 >
                   <Icon className="h-5 w-5" />
                 </a>

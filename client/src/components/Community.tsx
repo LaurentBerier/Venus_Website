@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
-import { SiX, SiFacebook, SiYoutube, SiInstagram, SiDiscord, SiTwitch } from 'react-icons/si';
+import { SiX, SiYoutube, SiInstagram, SiDiscord, SiFacebook, SiTiktok, SiBluesky } from 'react-icons/si';
 
 export default function Community() {
   const { t } = useLanguage();
@@ -12,20 +12,21 @@ export default function Community() {
   const { toast } = useToast();
 
   const socialLinks = [
-    { icon: SiX, label: 'X', url: '#' },
-    { icon: SiFacebook, label: 'Facebook', url: '#' },
-    { icon: SiYoutube, label: 'YouTube', url: '#' },
-    { icon: SiInstagram, label: 'Instagram', url: '#' },
-    { icon: SiDiscord, label: 'Discord', url: '#' },
-    { icon: SiTwitch, label: 'Twitch', url: '#' },
+    { icon: SiX, label: 'X', url: 'https://twitter.com/BWallsStudio' },
+    { icon: SiFacebook, label: 'Facebook', url: 'https://www.facebook.com/BreakingWallsStudio' },
+    { icon: SiYoutube, label: 'YouTube', url: 'https://www.youtube.com/channel/BreakingWallsStudio' },
+    { icon: SiInstagram, label: 'Instagram', url: 'https://www.instagram.com/breakingwallsstudio' },
+    { icon: SiTiktok, label: 'TikTok', url: 'https://www.tiktok.com/@BreakingWallsStudio' },
+    { icon: SiDiscord, label: 'Discord', url: 'https://discord.com/channels/603754527753109516/603754528797622313' },
+    { icon: SiBluesky, label: 'Bluesky', url: 'https://bsky.app/profile/breakingwalls.bsky.social' },
   ];
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Newsletter subscription:', email);
     toast({
-      title: 'Enlisted!',
-      description: 'Welcome to the colony, survivor.',
+      title: 'Subscribed!',
+      description: 'Welcome to the Breaking Walls community.',
     });
     setEmail('');
   };
@@ -47,9 +48,9 @@ export default function Community() {
 
         <Card className="mb-8 border-glow-cyan">
           <CardContent className="p-8 space-y-6">
-            <h3 className="font-serif text-xl font-bold text-foreground tracking-wider uppercase">
+            <p className="text-foreground/80 text-sm leading-relaxed">
               {t.community.newsletter}
-            </h3>
+            </p>
             <form onSubmit={handleSubscribe} className="flex gap-2">
               <Input
                 type="email"
@@ -67,7 +68,7 @@ export default function Community() {
           </CardContent>
         </Card>
 
-        <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
+        <div className="grid grid-cols-4 sm:grid-cols-7 gap-4">
           {socialLinks.map((social, index) => {
             const Icon = social.icon;
             return (
@@ -78,12 +79,25 @@ export default function Community() {
                 rel="noopener noreferrer"
                 className="flex flex-col items-center gap-2 p-4 rounded-md bg-background hover-elevate active-elevate-2 transition-all"
                 data-testid={`link-social-${social.label.toLowerCase()}`}
+                aria-label={social.label}
               >
                 <Icon className="h-8 w-8 text-foreground" />
                 <span className="text-xs text-foreground/70">{social.label}</span>
               </a>
             );
           })}
+        </div>
+
+        <div className="mt-8 text-center">
+          <a
+            href="https://www.breakingwalls.co/home"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-primary hover:text-primary/80 transition-colors uppercase tracking-wider"
+            data-testid="link-studio-website-community"
+          >
+            Visit breakingwalls.co
+          </a>
         </div>
       </div>
     </section>
