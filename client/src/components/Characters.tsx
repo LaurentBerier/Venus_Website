@@ -53,22 +53,23 @@ export default function Characters() {
 
         <div className="mb-10">
           <Card className="overflow-hidden border-glow-cyan">
-            <div className="aspect-[16/9] relative">
-              <img
-                src={exploreImg}
-                alt="Player approaching the rolling fortress on Venus"
-                className="w-full h-full object-cover"
-                data-testid="img-fortress-hero"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-8 space-y-3">
-                <h3 className="font-serif text-3xl sm:text-4xl font-bold text-white tracking-wider uppercase">
-                  {t.characters.pioneer.name}
-                </h3>
-                <p className="text-primary font-semibold uppercase tracking-wider text-sm">
+            <div className="grid lg:grid-cols-2">
+              <div className="aspect-[4/3] lg:aspect-auto relative">
+                <img
+                  src={exploreImg}
+                  alt="Player approaching the rolling fortress on Venus"
+                  className="w-full h-full object-cover"
+                  data-testid="img-fortress-hero"
+                />
+              </div>
+              <div className="p-8 lg:p-12 flex flex-col justify-center space-y-4 bg-card">
+                <p className="text-primary font-semibold uppercase tracking-widest text-sm">
                   {t.characters.pioneer.title}
                 </p>
-                <p className="text-white/90 text-sm sm:text-base leading-relaxed max-w-2xl">
+                <h3 className="font-serif text-3xl sm:text-4xl font-bold text-foreground tracking-wider uppercase heading-glow">
+                  {t.characters.pioneer.name}
+                </h3>
+                <p className="text-foreground/80 leading-relaxed">
                   {t.characters.pioneer.description}
                 </p>
               </div>
