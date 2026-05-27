@@ -90,7 +90,7 @@ export default function Editions() {
                   onClick={() => window.open(STEAM_URL, '_blank')}
                   data-testid={`button-preorder-${index}`}
                 >
-                  {t.nav.preOrder}
+                  Get It Now
                 </Button>
               </CardFooter>
             </Card>
