@@ -5,6 +5,7 @@ import { Check } from 'lucide-react';
 import keyArtImage from '@assets/VenusTheLastAscent_KeyArtHorizontal_01_1779741673571.jpg';
 
 const STEAM_URL = 'https://store.steampowered.com/app/2640150/Venus_The_Last_Ascent/?beta=0';
+const NEXT_FEST_URL = 'https://store.steampowered.com/sale/nextfest';
 
 export default function Editions() {
   const { t } = useLanguage();
@@ -15,18 +16,24 @@ export default function Editions() {
       price: t.editions.standard.price,
       items: t.editions.standard.items,
       featured: false,
+      cta: 'Get It Now',
+      url: STEAM_URL,
     },
     {
       name: t.editions.deluxe.name,
       price: t.editions.deluxe.price,
       items: t.editions.deluxe.items,
       featured: true,
+      cta: 'Wishlist Now',
+      url: STEAM_URL,
     },
     {
       name: t.editions.collectors.name,
       price: t.editions.collectors.price,
       items: t.editions.collectors.items,
       featured: false,
+      cta: 'Check it Out',
+      url: NEXT_FEST_URL,
     },
   ];
 
@@ -87,10 +94,10 @@ export default function Editions() {
                 <Button
                   className="w-full"
                   variant={edition.featured ? 'default' : 'outline'}
-                  onClick={() => window.open(STEAM_URL, '_blank')}
+                  onClick={() => window.open(edition.url, '_blank')}
                   data-testid={`button-preorder-${index}`}
                 >
-                  Get It Now
+                  {edition.cta}
                 </Button>
               </CardFooter>
             </Card>
