@@ -31,6 +31,9 @@ This guide will help you deploy the Osman Ghazi: Ottoman Rising website to Verce
    - In the Vercel dashboard, go to your project settings
    - Add any required environment variables:
      - `SESSION_SECRET` - Your session secret key
+     - `RESEND_API_KEY` - Resend API key for contact form delivery
+     - `CONTACT_TO_EMAIL` - Recipient inbox for contact submissions
+     - `CONTACT_FROM_EMAIL` - Verified sender address (Resend domain required)
      - Any other API keys or configuration values
 
 4. **Deploy**

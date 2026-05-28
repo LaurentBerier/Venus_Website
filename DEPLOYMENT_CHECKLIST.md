@@ -41,6 +41,9 @@ Use this checklist to ensure a smooth deployment to Vercel.
 - [ ] **Environment Variables in Vercel**
   - [ ] `SESSION_SECRET` added (generate secure random string)
   - [ ] `NODE_ENV` set to `production`
+  - [ ] `RESEND_API_KEY` added
+  - [ ] `CONTACT_TO_EMAIL` added
+  - [ ] `CONTACT_FROM_EMAIL` uses a verified Resend sender/domain
   - [ ] Any other required variables added
 
 ## Deployment

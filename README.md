@@ -116,7 +116,23 @@ For production deployment, configure these environment variables:
 ```env
 SESSION_SECRET=your_session_secret_here
 NODE_ENV=production
+RESEND_API_KEY=re_xxxxxxxxx
+CONTACT_TO_EMAIL=info@breakingwalls.co
+CONTACT_FROM_EMAIL="Venus Website <info@breakingwalls.co>"
 ```
+
+### Contact Email Setup (Resend)
+
+1. Create a Resend account at [resend.com](https://resend.com).
+2. Verify your sending domain in Resend (`Domains` tab) and add SPF/DKIM DNS records.
+3. Copy your API key into `RESEND_API_KEY`.
+4. Set `CONTACT_FROM_EMAIL` to `info@breakingwalls.co` (on your verified domain).
+5. Set `CONTACT_TO_EMAIL` to the inbox that should receive contact form submissions.
+6. Add the same variables in Vercel:
+   - Project `Settings` -> `Environment Variables`
+   - Add for `Production`, `Preview`, and `Development` as needed
+
+The contact form posts to `/api/contact` and now works in both local dev (`npm run dev`) and Vercel deployments.
 
 ## 🧩 Key Components
 

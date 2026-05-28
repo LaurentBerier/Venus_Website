@@ -1,6 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import { handleContactSubmission } from "../shared/contact";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // put application routes here
@@ -8,6 +9,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // use storage to perform CRUD operations on the storage interface
   // e.g. storage.insertUser(user) or storage.getUserByUsername(username)
+  app.post("/api/contact", async (req, res) => {
+    const result = await handleContactSubmission(req.body ?? {});
+    res.status(result.status).json(result.body);
+  });
 
   const httpServer = createServer(app);
 
