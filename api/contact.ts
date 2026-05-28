@@ -1,4 +1,4 @@
-import { handleContactSubmission, type ContactPayload } from "../shared/contact";
+import { handleContactSubmission, type ContactPayload } from "../shared/contact.js";
 
 function json(res: any, status: number, body: Record<string, unknown>) {
   res.status(status).json(body);
