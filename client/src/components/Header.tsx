@@ -45,8 +45,10 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b transition-all duration-300 ${
-        isScrolled ? 'border-[hsl(190,85%,50%,0.15)] shadow-lg shadow-black/30' : 'border-black'
+      className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${
+        isScrolled
+          ? 'bg-background/70 backdrop-blur-xl border-[hsl(190,85%,50%,0.15)] shadow-lg shadow-black/30'
+          : 'bg-background border-black'
       }`}
       data-testid="header"
     >
