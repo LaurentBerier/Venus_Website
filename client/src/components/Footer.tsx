@@ -13,7 +13,7 @@ export default function Footer() {
   const socialLinks = [
     { icon: SiX, label: 'X', url: 'https://twitter.com/BWallsStudio' },
     { icon: SiFacebook, label: 'Facebook', url: 'https://www.facebook.com/BreakingWallsStudio' },
-    { icon: SiYoutube, label: 'YouTube', url: 'https://www.youtube.com/channel/BreakingWallsStudio' },
+    { icon: SiYoutube, label: 'YouTube', url: 'https://www.youtube.com/@BreakingWallsStudio' },
     { icon: SiInstagram, label: 'Instagram', url: 'https://www.instagram.com/breakingwallsstudio' },
     { icon: SiTiktok, label: 'TikTok', url: 'https://www.tiktok.com/@BreakingWallsStudio' },
     { icon: SiDiscord, label: 'Discord', url: 'https://discord.com/channels/603754527753109516/603754528797622313' },

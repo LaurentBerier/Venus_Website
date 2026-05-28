@@ -117,7 +117,7 @@ export default function Hero() {
         style={{ backgroundImage: `url(${heroImage})` }}
       />
 
-      <div className="absolute inset-0 hidden overflow-hidden pointer-events-none md:block">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <iframe
           ref={backgroundVideoRef}
           src={backgroundVideoSrc}

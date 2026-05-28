@@ -1,35 +1,18 @@
-import { useState } from 'react';
 import { useLanguage } from '@/lib/LanguageContext';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { useToast } from '@/hooks/use-toast';
 import { SiX, SiYoutube, SiInstagram, SiDiscord, SiFacebook, SiTiktok, SiBluesky } from 'react-icons/si';
 
 export default function Community() {
   const { t } = useLanguage();
-  const [email, setEmail] = useState('');
-  const { toast } = useToast();
 
   const socialLinks = [
     { icon: SiX, label: 'X', url: 'https://twitter.com/BWallsStudio' },
     { icon: SiFacebook, label: 'Facebook', url: 'https://www.facebook.com/BreakingWallsStudio' },
-    { icon: SiYoutube, label: 'YouTube', url: 'https://www.youtube.com/channel/BreakingWallsStudio' },
+    { icon: SiYoutube, label: 'YouTube', url: 'https://www.youtube.com/@BreakingWallsStudio' },
     { icon: SiInstagram, label: 'Instagram', url: 'https://www.instagram.com/breakingwallsstudio' },
     { icon: SiTiktok, label: 'TikTok', url: 'https://www.tiktok.com/@BreakingWallsStudio' },
     { icon: SiDiscord, label: 'Discord', url: 'https://discord.com/channels/603754527753109516/603754528797622313' },
     { icon: SiBluesky, label: 'Bluesky', url: 'https://bsky.app/profile/breakingwalls.bsky.social' },
   ];
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Newsletter subscription:', email);
-    toast({
-      title: 'Subscribed!',
-      description: 'Welcome to the Breaking Walls community.',
-    });
-    setEmail('');
-  };
 
   return (
     <section id="community" className="py-16 sm:py-24 bg-card/90 relative section-divider-glow" data-testid="section-community">
@@ -45,28 +28,6 @@ export default function Community() {
             {t.community.title}
           </h2>
         </div>
-
-        <Card className="mb-8 border-glow-cyan">
-          <CardContent className="p-8 space-y-6">
-            <p className="text-foreground/80 text-sm leading-relaxed">
-              {t.community.newsletter}
-            </p>
-            <form onSubmit={handleSubscribe} className="flex gap-2">
-              <Input
-                type="email"
-                placeholder={t.community.emailPlaceholder}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="flex-1"
-                data-testid="input-newsletter-email"
-              />
-              <Button type="submit" data-testid="button-subscribe">
-                {t.community.subscribe}
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
 
         <div className="grid grid-cols-4 sm:grid-cols-7 gap-4">
           {socialLinks.map((social, index) => {

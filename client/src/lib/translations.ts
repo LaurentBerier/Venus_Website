@@ -172,9 +172,6 @@ export const translations = {
     community: {
       title: 'Join the Community',
       subtitle: 'Connect with Us',
-      newsletter: 'Subscribe for dev updates, demo announcements, and early access invitations from Breaking Walls.',
-      emailPlaceholder: 'Enter your email',
-      subscribe: 'Subscribe',
     },
     faq: {
       title: 'Frequently Asked Questions',
@@ -393,9 +390,6 @@ export const translations = {
     community: {
       title: 'Rejoignez la Communaut\u00E9',
       subtitle: 'Connectez-vous',
-      newsletter: 'Inscrivez-vous pour les mises \u00E0 jour de d\u00E9veloppement, les annonces de d\u00E9mo et les invitations d\'acc\u00E8s anticip\u00E9 de Breaking Walls.',
-      emailPlaceholder: 'Entrez votre email',
-      subscribe: "S'abonner",
     },
     faq: {
       title: 'Questions Fr\u00E9quentes',
