@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { Download } from 'lucide-react';
+import { Download, Loader2 } from 'lucide-react';
 
 const PRESS_KIT_URL = 'https://breakingwalls.notion.site/Press-Kit-36b4306583c6809aa562ccea0bfad029';
 const CONTACT_EMAIL = 'info@breakingwalls.co';
@@ -17,20 +17,40 @@ export default function Contact() {
     name: '',
     email: '',
     message: '',
+    company: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Message from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
-    );
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-    toast({
-      title: 'Opening email client...',
-      description: `Your message will be sent to ${CONTACT_EMAIL}`,
-    });
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const result = await response.json().catch(() => null);
+        throw new Error(result?.error || t.contact.errorDescription);
+      }
+
+      toast({
+        title: t.contact.sentTitle,
+        description: t.contact.sentDescription,
+      });
+      setFormData({ name: '', email: '', message: '', company: '' });
+    } catch (error) {
+      toast({
+        title: t.contact.errorTitle,
+        description: error instanceof Error ? error.message : t.contact.errorDescription,
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -56,6 +76,16 @@ export default function Contact() {
           <Card className="border-glow-cyan">
             <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
+                <input
+                  type="text"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  className="hidden"
+                  aria-hidden="true"
+                />
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-2 uppercase tracking-wider">
                     {t.contact.name}
@@ -93,12 +123,25 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     rows={5}
+                    minLength={10}
                     required
                     data-testid="input-contact-message"
                   />
                 </div>
-                <Button type="submit" className="w-full" data-testid="button-send-message">
-                  {t.contact.send}
+                <Button
+                  type="submit"
+                  className="w-full"
+                  disabled={isSubmitting}
+                  data-testid="button-send-message"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      {t.contact.sending}
+                    </>
+                  ) : (
+                    t.contact.send
+                  )}
                 </Button>
               </form>
               <p className="text-xs text-foreground/50 mt-4 text-center">
