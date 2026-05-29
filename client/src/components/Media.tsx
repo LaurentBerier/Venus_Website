@@ -21,18 +21,18 @@ export default function Media() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const screenshots = [
-    { src: img1, alt: 'Venus: The Last Ascent - Screenshot 1' },
-    { src: img2, alt: 'Venus: The Last Ascent - Screenshot 2' },
-    { src: img3, alt: 'Venus: The Last Ascent - Screenshot 3' },
-    { src: img4, alt: 'Venus: The Last Ascent - Screenshot 4' },
-    { src: img5, alt: 'Venus: The Last Ascent - Screenshot 5' },
-    { src: img6, alt: 'Venus: The Last Ascent - Screenshot 6' },
-    { src: img7, alt: 'Venus: The Last Ascent - Screenshot 7' },
-    { src: img8, alt: 'Venus: The Last Ascent - Screenshot 8' },
-    { src: img9, alt: 'Venus: The Last Ascent - Screenshot 9' },
-    { src: img10, alt: 'Venus: The Last Ascent - Screenshot 10' },
-    { src: img11, alt: 'Venus: The Last Ascent - Screenshot 11' },
-    { src: img12, alt: 'Venus: The Last Ascent - Screenshot 12' },
+    { src: img1, alt: 'Rolling fortress crossing Venus terrain at dawn' },
+    { src: img2, alt: 'Mobile base modules and defensive systems on Venus' },
+    { src: img3, alt: 'Mining operation beside the rolling fortress' },
+    { src: img4, alt: 'Storm-lit Venus landscape with vehicle fortress' },
+    { src: img5, alt: 'Fortress interior systems and upgrade modules' },
+    { src: img6, alt: 'Resource extraction and refinery gameplay moment' },
+    { src: img7, alt: 'Combat encounter with hostile machines at sunrise' },
+    { src: img8, alt: 'Exploration of volcanic plains with mobile base' },
+    { src: img9, alt: 'Fortress traversal across hazardous Venus biomes' },
+    { src: img10, alt: 'High-intensity battle scene on Venus surface' },
+    { src: img11, alt: 'Expanded fortress build with multiple modules' },
+    { src: img12, alt: 'Journey toward Cloud City above the toxic clouds' },
   ];
 
   return (
@@ -63,6 +63,8 @@ export default function Media() {
                   src={screenshot.src}
                   alt={screenshot.alt}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </Card>
@@ -84,6 +86,7 @@ export default function Media() {
               src={selectedImage}
               alt="Full size preview"
               className="w-full h-auto"
+              decoding="async"
               data-testid="img-modal-preview"
             />
           )}

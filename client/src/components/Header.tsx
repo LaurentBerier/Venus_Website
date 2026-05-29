@@ -52,26 +52,41 @@ export default function Header() {
       }`}
       data-testid="header"
     >
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-background focus:px-3 focus:py-2 focus:rounded-md focus:text-foreground"
+      >
+        Skip to main content
+      </a>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          <button
-            onClick={() => scrollToSection('hero')}
+          <a
+            href="#hero"
+            onClick={(event) => {
+              event.preventDefault();
+              scrollToSection('hero');
+            }}
             className="flex items-center gap-3 hover-elevate active-elevate-2 p-2 rounded-md"
             data-testid="button-logo"
           >
             <img src={logoImage} alt="Venus: The Last Ascent" className="h-8 sm:h-10 w-auto" />
-          </button>
+          </a>
 
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
             {navLinks.map((link) => (
-              <button
+              <a
                 key={link.id}
-                onClick={() => scrollToSection(link.id)}
+                href={`#${link.id}`}
+                onClick={(event) => {
+                  event.preventDefault();
+                  scrollToSection(link.id);
+                }}
                 className="text-xs uppercase tracking-wider text-foreground/70 hover:text-primary px-3 py-2 rounded-md hover-elevate active-elevate-2 transition-colors"
                 data-testid={`link-${link.id}`}
               >
                 {link.label}
-              </button>
+              </a>
             ))}
           </nav>
 
@@ -94,13 +109,15 @@ export default function Header() {
             </div>
 
             <Button
+              asChild
               variant="default"
               size="sm"
-              onClick={() => window.open(STEAM_URL, '_blank')}
               className="hidden sm:inline-flex"
               data-testid="button-preorder-header"
             >
-              {t.nav.preOrder}
+              <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">
+                {t.nav.preOrder}
+              </a>
             </Button>
 
             <Button
@@ -119,14 +136,18 @@ export default function Header() {
         <div className="lg:hidden bg-card border-t border-card-border">
           <div className="px-4 py-4 space-y-2">
             {navLinks.map((link) => (
-              <button
+              <a
                 key={link.id}
-                onClick={() => scrollToSection(link.id)}
+                href={`#${link.id}`}
+                onClick={(event) => {
+                  event.preventDefault();
+                  scrollToSection(link.id);
+                }}
                 className="block w-full text-left px-3 py-2 rounded-md text-foreground/80 hover:text-foreground hover-elevate active-elevate-2 text-sm uppercase tracking-wider"
                 data-testid={`mobile-link-${link.id}`}
               >
                 {link.label}
-              </button>
+              </a>
             ))}
             <div className="pt-2 border-t border-border flex gap-2">
               {languages.map((lang) => (

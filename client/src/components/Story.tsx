@@ -30,6 +30,8 @@ export default function Story() {
                 src={storyImage}
                 alt="Venus: The Last Ascent"
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
                 data-testid="img-story-portrait"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />

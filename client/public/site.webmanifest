@@ -1,0 +1,16 @@
+{
+  "name": "Venus: The Last Ascent",
+  "short_name": "Venus",
+  "description": "Official website for Venus: The Last Ascent, a physics-based survival game by Breaking Walls.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07080f",
+  "theme_color": "#07080f",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ]
+}

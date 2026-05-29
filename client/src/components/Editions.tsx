@@ -57,6 +57,8 @@ export default function Editions() {
                 src={keyArtImage}
                 alt="Venus: The Last Ascent - Key Art"
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
                 data-testid="img-keyart"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -92,12 +94,14 @@ export default function Editions() {
               </CardContent>
               <CardFooter>
                 <Button
+                  asChild
                   className="w-full"
                   variant={edition.featured ? 'default' : 'outline'}
-                  onClick={() => window.open(edition.url, '_blank')}
                   data-testid={`button-preorder-${index}`}
                 >
-                  {edition.cta}
+                  <a href={edition.url} target="_blank" rel="noopener noreferrer">
+                    {edition.cta}
+                  </a>
                 </Button>
               </CardFooter>
             </Card>

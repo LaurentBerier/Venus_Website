@@ -59,6 +59,8 @@ export default function Characters() {
                   src={exploreImg}
                   alt="Player approaching the rolling fortress on Venus"
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                   data-testid="img-fortress-hero"
                 />
               </div>
@@ -91,6 +93,8 @@ export default function Characters() {
                     src={step.image}
                     alt={step.title}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-black/50" />
                   <div className="absolute top-3 left-3">

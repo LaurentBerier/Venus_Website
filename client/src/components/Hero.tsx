@@ -124,6 +124,7 @@ export default function Hero() {
           title="Venus: The Last Ascent - Background Video"
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full border-0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          loading="eager"
           onLoad={() => requestBestVideoQuality(backgroundVideoRef.current)}
           style={{ border: 'none' }}
         />
@@ -138,10 +139,14 @@ export default function Hero() {
 
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-8 w-full">
+          <h1 className="sr-only">{t.hero.title}</h1>
+
           <img
             src={logoImage}
             alt="Venus: The Last Ascent"
             className="w-full max-w-2xl h-auto mx-auto animate-fade-in"
+            decoding="async"
+            fetchPriority="high"
             data-testid="img-hero-logo"
           />
 
@@ -161,12 +166,14 @@ export default function Hero() {
               {t.nav.watchTrailer}
             </Button>
             <Button
+              asChild
               size="lg"
               className="bg-accent text-accent-foreground border border-accent-border min-w-[200px] border-glow-orange"
-              onClick={() => window.open(STEAM_URL, '_blank')}
               data-testid="button-preorder-hero"
             >
-              {t.nav.preOrder}
+              <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">
+                {t.nav.preOrder}
+              </a>
             </Button>
           </div>
         </div>
@@ -191,6 +198,7 @@ export default function Hero() {
               title="Venus: The Last Ascent - Trailer"
               className="w-full h-full rounded-md border border-[hsl(190,85%,50%,0.3)]"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              loading="lazy"
               allowFullScreen
               onLoad={() => requestBestVideoQuality(trailerVideoRef.current)}
             />

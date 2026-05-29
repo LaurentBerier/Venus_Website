@@ -25,7 +25,13 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <img src={logoImage} alt="Venus: The Last Ascent" className="h-auto w-40 mb-4" />
+            <img
+              src={logoImage}
+              alt="Venus: The Last Ascent"
+              className="h-auto w-40 mb-4"
+              loading="lazy"
+              decoding="async"
+            />
             <p className="text-sm text-foreground/70 mb-3">
               Build a rolling fortress, survive Venus, and fight your way to the last city above the clouds.
             </p>

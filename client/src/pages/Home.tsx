@@ -36,30 +36,31 @@ export default function Home() {
 
       <div className="relative" style={{ zIndex: 2 }}>
         <Header />
+        <main id="main-content">
+          <SectionGroup bg="stars">
+            <Hero />
+            <Story />
+            <Features />
+          </SectionGroup>
 
-        <SectionGroup bg="stars">
-          <Hero />
-          <Story />
-          <Features />
-        </SectionGroup>
+          <SectionGroup bg="nebula">
+            <World />
+            <Characters />
+          </SectionGroup>
 
-        <SectionGroup bg="nebula">
-          <World />
-          <Characters />
-        </SectionGroup>
+          <SectionGroup bg="blackhole">
+            <Editions />
+            <Media />
+          </SectionGroup>
 
-        <SectionGroup bg="blackhole">
-          <Editions />
-          <Media />
-        </SectionGroup>
-
-        <SectionGroup bg="stars">
-          <Roadmap />
-          <Community />
-          <FAQ />
-          <Contact />
-          <Footer />
-        </SectionGroup>
+          <SectionGroup bg="stars">
+            <Roadmap />
+            <Community />
+            <FAQ />
+            <Contact />
+            <Footer />
+          </SectionGroup>
+        </main>
       </div>
     </div>
   );

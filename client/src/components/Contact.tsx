@@ -145,7 +145,9 @@ export default function Contact() {
                 </Button>
               </form>
               <p className="text-xs text-foreground/50 mt-4 text-center">
-                {CONTACT_EMAIL}
+                <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-primary transition-colors">
+                  {CONTACT_EMAIL}
+                </a>
               </p>
             </CardContent>
           </Card>
@@ -164,12 +166,14 @@ export default function Contact() {
                 </p>
               </div>
               <Button
+                asChild
                 variant="outline"
-                onClick={() => window.open(PRESS_KIT_URL, '_blank')}
                 data-testid="button-download-presskit"
               >
-                <Download className="mr-2 h-4 w-4" />
-                {t.contact.downloadPress}
+                <a href={PRESS_KIT_URL} target="_blank" rel="noopener noreferrer">
+                  <Download className="mr-2 h-4 w-4" />
+                  {t.contact.downloadPress}
+                </a>
               </Button>
               <p className="text-xs text-foreground/50">
                 Press contact: Nathanael Dufour
