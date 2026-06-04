@@ -10,7 +10,7 @@ export default function Community() {
     { icon: SiYoutube, label: 'YouTube', url: 'https://www.youtube.com/@BreakingWallsStudio' },
     { icon: SiInstagram, label: 'Instagram', url: 'https://www.instagram.com/breakingwallsstudio' },
     { icon: SiTiktok, label: 'TikTok', url: 'https://www.tiktok.com/@BreakingWallsStudio' },
-    { icon: SiDiscord, label: 'Discord', url: 'https://discord.com/channels/603754527753109516/603754528797622313' },
+    { icon: SiDiscord, label: 'Discord', url: 'https://discord.gg/3fgQNhYSS' },
     { icon: SiBluesky, label: 'Bluesky', url: 'https://bsky.app/profile/breakingwalls.bsky.social' },
   ];
 

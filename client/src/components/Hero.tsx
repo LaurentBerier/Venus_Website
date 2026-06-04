@@ -6,7 +6,7 @@ import heroImage from '@assets/VenusTheLastAscent_KeyArtHorizontal_01_1779741673
 import mobileHeroImage from '@assets/VenusTheLastAscent_KeyArtVertical_01_notitle.jpg';
 import logoImage from '@assets/VenusTheLastAscent_LogoWhite_Bold_Alpha_4096x1024_1779740028478.png';
 
-const TRAILER_ID = '56Pn344KUVE';
+const TRAILER_ID = '7JImB9CAwy0';
 const STEAM_URL = 'https://store.steampowered.com/app/2640150/Venus_The_Last_Ascent/?beta=0';
 const YOUTUBE_ORIGIN = 'https://www.youtube.com';
 
