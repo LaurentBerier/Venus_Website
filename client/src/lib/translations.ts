@@ -16,12 +16,12 @@ export const translations = {
     },
     hero: {
       title: 'Venus: The Last Ascent',
-      tagline: 'Build a rolling fortress, survive Venus, and fight your way to the last city above the clouds.',
+      tagline: 'Engineer a physics-driven rolling fortress, survive Venus, and fight your way to the last city above the clouds.',
     },
     story: {
       title: 'The Last Ascent',
       subtitle: 'The Story',
-      content: 'Venus: The Last Ascent is a physics-based survival game where your base is also your vehicle. You are not building a shelter and waiting for rescue. You are hauling your entire world across one of the most hostile planets in the solar system. Your rolling fortress is your home, workshop, power grid, oxygen supply, weapon platform, farm, mining rig, and only way forward. On the horizon, a beam of light points toward Cloud City, the last city above the clouds. Every upgrade, every repair, every fight, and every kilometer crossed brings you closer to escape.',
+      content: 'Venus: The Last Ascent is a physics-based sci-fi PC survival game where your base is also your vehicle. You are not building a shelter and waiting for rescue. You are hauling your entire world across one of the most hostile planets in the solar system. Your rolling fortress is your home, workshop, power grid, oxygen supply, weapon platform, farm, mining rig, and only way forward. Every module affects weight, balance, movement, and stability. On the horizon, a beam of light points toward Cloud City, the last city above the clouds. Every upgrade, every repair, every fight, and every kilometer crossed brings you closer to escape.',
     },
     features: {
       title: 'Key Features',
@@ -110,7 +110,7 @@ export const translations = {
           'Venusian terrain traversal',
           'Mining and resource gathering',
           'Machine defense at sunrise',
-          'Available May 26, 2026',
+          'Available since May 26, 2026',
         ],
       },
       deluxe: {
@@ -155,12 +155,12 @@ export const translations = {
         {
           title: 'New Trailer',
           date: 'June 2, 2026',
-          status: 'in-progress',
+          status: 'completed',
         },
         {
           title: 'Steam Next Fest',
           date: 'June 15, 2026',
-          status: 'upcoming',
+          status: 'completed',
         },
         {
           title: 'Full Release',
@@ -178,12 +178,24 @@ export const translations = {
       subtitle: 'Intel Briefing',
       items: [
         {
+          question: 'What is Venus: The Last Ascent?',
+          answer: 'Venus: The Last Ascent is a physics-based sci-fi PC survival game by Breaking Walls where players engineer, build, and drive a massive rolling fortress across Venus.',
+        },
+        {
+          question: 'Is Venus: The Last Ascent a physics-based game?',
+          answer: 'Yes. Venus: The Last Ascent is a physics-based game where every module on the rolling fortress affects weight, balance, movement, stability, and survival on rough Venusian terrain.',
+        },
+        {
+          question: 'Is Venus: The Last Ascent a sci-fi PC game?',
+          answer: 'Yes. Venus: The Last Ascent is a science fiction PC game for Steam that combines survival crafting, physics-based vehicle building, base-building, mining, exploration, and machine defense.',
+        },
+        {
           question: 'When is the demo available?',
-          answer: 'The Venus: The Last Ascent demo is available starting May 26, 2026. The game will also be featured in Steam Next Fest beginning June 15, 2026.',
+          answer: 'The Venus: The Last Ascent demo is available on Steam for PC. It launched on May 26, 2026, and the game was featured in Steam Next Fest beginning June 15, 2026.',
         },
         {
           question: 'What platform is it on?',
-          answer: 'Venus: The Last Ascent launches on PC via Steam. Wishlist now to be notified the moment the full game launches.',
+          answer: 'Venus: The Last Ascent is available on PC via Steam. Wishlist now to be notified when the full game launches.',
         },
         {
           question: 'What kind of game is this?',
@@ -234,12 +246,12 @@ export const translations = {
     },
     hero: {
       title: 'Venus: The Last Ascent',
-      tagline: 'Construisez une forteresse roulante, survivez sur V\u00E9nus, et combattez vers la derni\u00E8re ville au-dessus des nuages.',
+      tagline: 'Ing\u00E9niez une forteresse roulante bas\u00E9e sur la physique, survivez sur V\u00E9nus, et combattez vers la derni\u00E8re ville au-dessus des nuages.',
     },
     story: {
       title: 'La Derni\u00E8re Ascension',
       subtitle: "L'Histoire",
-      content: "Venus: The Last Ascent est un jeu de survie bas\u00E9 sur la physique o\u00F9 votre base est aussi votre v\u00E9hicule. Vous ne construisez pas un abri en attendant les secours. Vous transportez tout votre monde \u00E0 travers l'une des plan\u00E8tes les plus hostiles du syst\u00E8me solaire. Votre forteresse roulante est votre maison, atelier, centrale \u00E9lectrique, r\u00E9serve d'oxyg\u00E8ne, plateforme d'armes, ferme, foreuse et seul moyen d'avancer. \u00C0 l'horizon, un faisceau de lumi\u00E8re pointe vers la Cit\u00E9 des Nuages, la derni\u00E8re ville au-dessus des nuages.",
+      content: "Venus: The Last Ascent est un jeu PC de survie et de science-fiction bas\u00E9 sur la physique, o\u00F9 votre base est aussi votre v\u00E9hicule. Vous ne construisez pas un abri en attendant les secours. Vous transportez tout votre monde \u00E0 travers l'une des plan\u00E8tes les plus hostiles du syst\u00E8me solaire. Votre forteresse roulante est votre maison, atelier, centrale \u00E9lectrique, r\u00E9serve d'oxyg\u00E8ne, plateforme d'armes, ferme, foreuse et seul moyen d'avancer. Chaque module influence le poids, l'\u00E9quilibre, le mouvement et la stabilit\u00E9. \u00C0 l'horizon, un faisceau de lumi\u00E8re pointe vers la Cit\u00E9 des Nuages, la derni\u00E8re ville au-dessus des nuages.",
     },
     features: {
       title: 'Fonctionnalit\u00E9s',
@@ -328,7 +340,7 @@ export const translations = {
           'Travers\u00E9e du terrain v\u00E9nusien',
           'Minage et collecte de ressources',
           'D\u00E9fense de la machine au lever du soleil',
-          'Disponible le 26 mai 2026',
+          'Disponible depuis le 26 mai 2026',
         ],
       },
       deluxe: {
@@ -373,12 +385,12 @@ export const translations = {
         {
           title: 'Nouvelle Bande-Annonce',
           date: '2 juin 2026',
-          status: 'in-progress',
+          status: 'completed',
         },
         {
           title: 'Steam Next Fest',
           date: '15 juin 2026',
-          status: 'upcoming',
+          status: 'completed',
         },
         {
           title: 'Sortie Compl\u00E8te',
@@ -396,12 +408,24 @@ export const translations = {
       subtitle: 'Briefing',
       items: [
         {
+          question: "Qu'est-ce que Venus: The Last Ascent?",
+          answer: 'Venus: The Last Ascent est un jeu PC de survie et de science-fiction bas\u00E9 sur la physique par Breaking Walls, o\u00F9 les joueurs ing\u00E9nient, construisent et pilotent une immense forteresse roulante sur V\u00E9nus.',
+        },
+        {
+          question: 'Venus: The Last Ascent est-il un jeu bas\u00E9 sur la physique?',
+          answer: "Oui. Venus: The Last Ascent est un jeu bas\u00E9 sur la physique o\u00F9 chaque module de la forteresse roulante influence le poids, l'\u00E9quilibre, le mouvement, la stabilit\u00E9 et la survie sur le terrain v\u00E9nusien.",
+        },
+        {
+          question: 'Venus: The Last Ascent est-il un jeu PC de science-fiction?',
+          answer: 'Oui. Venus: The Last Ascent est un jeu PC de science-fiction sur Steam qui combine survie, construction de v\u00E9hicule bas\u00E9e sur la physique, construction de base, minage, exploration et d\u00E9fense de machine.',
+        },
+        {
           question: 'Quand la d\u00E9mo est-elle disponible?',
-          answer: 'La d\u00E9mo de Venus: The Last Ascent est disponible \u00E0 partir du 26 mai 2026. Le jeu sera \u00E9galement pr\u00E9sent\u00E9 au Steam Next Fest d\u00E9butant le 15 juin 2026.',
+          answer: 'La d\u00E9mo de Venus: The Last Ascent est disponible sur Steam pour PC. Elle a \u00E9t\u00E9 lanc\u00E9e le 26 mai 2026, et le jeu a \u00E9t\u00E9 pr\u00E9sent\u00E9 au Steam Next Fest \u00E0 partir du 15 juin 2026.',
         },
         {
           question: 'Sur quelle plateforme?',
-          answer: 'Venus: The Last Ascent sort sur PC via Steam. Ajoutez-le \u00E0 votre liste de souhaits pour \u00EAtre notifi\u00E9 au lancement.',
+          answer: 'Venus: The Last Ascent est disponible sur PC via Steam. Ajoutez-le \u00E0 votre liste de souhaits pour \u00EAtre notifi\u00E9 au lancement du jeu complet.',
         },
         {
           question: 'Quel type de jeu est-ce?',

@@ -1,5 +1,18 @@
+# Search and AI answer engines should be able to crawl the public game pages.
+User-agent: OAI-SearchBot
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Applebot
+User-agent: Googlebot
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+
 User-agent: *
 Allow: /
 Disallow: /api/
 
 Sitemap: https://venusthelastascent.com/sitemap.xml
+# Plain-language AI summary: https://venusthelastascent.com/llms.txt

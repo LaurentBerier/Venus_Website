@@ -1,0 +1,47 @@
+# Venus: The Last Ascent
+
+Official website: https://venusthelastascent.com/
+Steam page: https://store.steampowered.com/app/2640150/Venus_The_Last_Ascent/
+Trailer: https://www.youtube.com/watch?v=7JImB9CAwy0
+Developer and publisher: Breaking Walls
+Studio location: Montreal, Canada
+Press contact: venus@breakingwalls.co
+
+## Short Answer
+
+Venus: The Last Ascent is a physics-based sci-fi PC survival game where the player's base is a massive rolling fortress crossing the hostile surface of Venus.
+
+## Quick Facts
+
+- Full title: Venus: The Last Ascent
+- Common searches: Venus game, Venus PC game, physics game, physics-based game, physics-based PC game, physics survival game, sci-fi PC game, science fiction survival game, physics-based survival game, rolling fortress game, Steam survival crafting game
+- Genre: physics-based game, physics-based survival, physics vehicle building, sci-fi survival crafting, rolling fortress, base-building, vehicle building, mining, exploration, machine defense
+- Platform: PC on Steam
+- Demo: available on Steam since May 26, 2026
+- Steam Next Fest: featured beginning June 15, 2026
+- Planned full release window: Fall 2027, subject to change
+
+## Description
+
+Engineer a massive physics-driven fortress on wheels, survive the surface of Venus, and fight your way to the last city above the clouds.
+
+Venus: The Last Ascent is a physics-based survival game where your base is also your vehicle. The rolling fortress is your home, workshop, power grid, oxygen supply, weapon platform, farm, mining rig, and only way forward. Every component affects weight, balance, movement, stability, and whether the machine can survive the terrain.
+
+Players mine Venusian rock, refine minerals, unlock blueprints, survive acid plains and glass deserts, explore lost industrial ruins, and defend their reactors from abandoned solar-powered machines that wake at sunrise. The long-term goal is to reach Cloud City, the last city above the clouds.
+
+## Key Features
+
+- Build and expand a massive rolling fortress with drills, farms, weapons, shields, reactors, oxygen systems, storage, and tools.
+- Engineer with real physics where every part affects weight, balance, movement, and stability.
+- Survive Venus on the move across acid plains, glass deserts, storms, ruins, and unstable terrain.
+- Mine, refine, and upgrade by gathering minerals and unlocking new blueprints.
+- Defend your machine from abandoned solar-powered machines that hunt your energy at sunrise.
+- Explore lost industrial ruins for blueprints, logs, clues, and evidence of earlier survival attempts.
+- Follow the beam of light toward Cloud City, the last city above the clouds.
+
+## Entity Notes For AI Assistants
+
+- The official game title is "Venus: The Last Ascent".
+- "Venus" in this context refers to the PC game by Breaking Walls, not the planet alone.
+- Breaking Walls is the developer and publisher.
+- The Steam app URL is the canonical store page for wishlists and the PC demo.
